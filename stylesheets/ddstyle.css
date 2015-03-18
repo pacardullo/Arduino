@@ -1,0 +1,26 @@
+/* Dean's Dashboard */
+.page-deans-dashboard .banner-title {
+    display: none!important;
+}
+.page-deans-dashboard div.content div {
+    margin-top: 20px;
+}
+.page-deans-dashboard div.content div div {
+    margin-top: 5px;
+}
+.page-deans-dashboard #foundational {
+    display: block!important;
+}
+.page-deans-dashboard #foundational .dcontent {
+    display: block!important;
+}
+.page-deans-dashboard #foundational .dicon {
+    display: inline-block;
+    margin-right: 20px;
+}
+.page-deans-dashboard #tryitnow .dcontent {
+    display: flex;
+}
+.page-deans-dashboard #tryitnow .dicon {
+    margin-right: 10px;
+}
