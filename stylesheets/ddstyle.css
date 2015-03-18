@@ -1,26 +1,35 @@
 /* Dean's Dashboard */
-.page-deans-dashboard .banner-title {
+.banner-title {
     display: none!important;
 }
-.page-deans-dashboard div.content div {
+.dsubsection {
     margin-top: 20px;
 }
-.page-deans-dashboard div.content div div {
-    margin-top: 5px;
+.dcontent {
+    margin-top: 5px!important;
 }
-.page-deans-dashboard #foundational {
+#foundational {
     display: block!important;
 }
-.page-deans-dashboard #foundational .dcontent {
+#foundational .dcontent {
     display: block!important;
 }
-.page-deans-dashboard #foundational .dicon {
+#foundational .dicon {
     display: inline-block;
     margin-right: 20px;
 }
-.page-deans-dashboard #tryitnow .dcontent {
+#tryitnow .dcontent {
     display: flex;
 }
-.page-deans-dashboard #tryitnow .dicon {
+#tryitnow .dicon {
     margin-right: 10px;
+}
+#screenshots .dcontent {
+    display: block;
+    width: 75%;
+}
+#screenshots .dicon {
+    display: inline;
+    padding-right: 5px;
+    line-height: 25px;
 }
