@@ -32,3 +32,25 @@
     padding-right: 5px;
     line-height: 25px;
 }
+#tryitnow .dicon a, #learnmore .dicon a {
+    width: 120px!important;
+    display: inline-block;
+    text-align: center;
+    margin-right: 20px!important;
+}
+#foundational .dicon a {
+    margin-left: 0px!important;
+    margin-right: 10px!important;
+    width: 120px!important;
+    display: inline-block;
+    text-align: center;
+}
+#foundational {
+    margin-bottom: 20px!important;
+}
+#footer_wrap .inner {
+    display: none;
+}
+.dicon img {
+    border: solid lightgray 1px;
+}
