@@ -1,0 +1,174 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;26.&nbsp;Settings</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="pt03.html" title="Part&nbsp;Volume III: Administrator Guide.&nbsp;Volume III: Administrator Guide"><link rel="prev" href="ch25s17.html" title="Data synchronization"><link rel="next" href="ch27.html" title="Chapter&nbsp;27.&nbsp;Data dimensions in DHIS2"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;26.&nbsp;Settings</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch25s17.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;Volume III: Administrator Guide.&nbsp;Volume III: Administrator Guide</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch27.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter&nbsp;26.&nbsp;Settings"><div class="titlepage"><div><div><h2 class="title"><a name="d5e3360"></a>Chapter&nbsp;26.&nbsp;Settings</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ch26.html#d5e3365">System settings</a></span></dt><dd><dl><dt><span class="section"><a href="ch26.html#systemGeneralSettings">General settings</a></span></dt><dt><span class="section"><a href="ch26.html#systemAppearanceSettings">System appearance settings</a></span></dt><dt><span class="section"><a href="ch26.html#systemEmailSettings">Email settings</a></span></dt><dt><span class="section"><a href="ch26.html#d5e3424">Access settings</a></span></dt><dt><span class="section"><a href="ch26.html#d5e3447">Calendar settings</a></span></dt><dt><span class="section"><a href="ch26.html#d5e3454">Synchronization settings</a></span></dt></dl></dd></dl></div>
+  
+  <p>The settings module provides a set of application configuration options. There are two main
+    groups of settings: the <span class="italic">system settings</span> apply to the whole
+    system and all its users while the <span class="italic">user settings</span> apply to the
+    environment of the currently logged in user. The system settings can be accessed from the
+    maintenance menu, settings module. The user settings can be accessed under the profile menu,
+    settings page.</p>
+  <div class="section" title="System settings"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e3365"></a>System settings</h2></div></div></div>
+    
+    <p>The system settings section provides general configuration options and options specifically for appearance and email.</p>
+    <div class="section" title="General settings"><div class="titlepage"><div><div><h3 class="title"><a name="systemGeneralSettings"></a>General settings</h3></div></div></div>
+      
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Cache strategy: Decides for how long reports and responses related to analysis
+            should be cached. If you are using the scheduled, nightly data mart tasks it makes sense
+            to put this on "Cache until 6 AM tomorrow". This is because we know that data in reports
+            change at that time, and you can safely cache data up to the moment when the data mart
+            is updated. If you are loading data continuously into the datamart you should set it to
+            "No cache". If you load data very infrequently into data mart you should consider
+            setting it to "Cache for two weeks".</p>
+        </li><li class="listitem">
+          <p>Infrastructural data elements: This setting defines a data element group where the member data elements should describe data about the infrastructure of organisation units. Examples of such infrastructural data elements could be population, doctors, beds, internet connectivity and climate. This infrastructural data can currently be viewed in the GIS module in the facility information sheet.</p>
+        </li><li class="listitem">
+          <p>Infrastructural period type: Sets the frequency for which the data elements in the
+            infrastructural data elements group are captured. This will typically be yearly. When
+            viewing the infrastructural data you will be able to select the time period of the data
+            source.</p>
+        </li><li class="listitem">
+          <p>Feedback recipients: This setting defines a user group where the members will
+            receive all messages being sent through the function for writing feedback in the
+            dashboard module. This will typically be members of the super user team who are able to
+            support and answer questions coming from end-users.</p>
+        </li><li class="listitem">
+          <p>Maximum offline organisation unit levels: This setting defines how many levels in
+            the organisation unit hierarchy will be available offline in the organisation unit tree
+            widget. Under normal circumstances you can leaves this on the lowest level, which is
+            default behavior. Setting it to a higher level might be useful in order to reduce
+            initial load time in cases where you have extremely many organisation units, typically
+            more than 30 000.</p>
+        </li><li class="listitem">
+          <p>Data analysis std dev factor: Sets the number of standard deviations for use in the outlier analysis performed on the captured data in the data entry module. The default value is 2; a high value will catch less outlier values than a low value.</p>
+        </li><li class="listitem">
+          <p>Days after period end to qualify for timely data submission: Sets the number of days after the end of a period in which a data entry form must be marked as complete in order to be considered timely. This affects the "reporting rate" tool in the reporting module which lists forms marked as complete as well as marked as complete in time. The default value is 15.</p>
+        </li><li class="listitem">
+          <p>Phone number area code: The area code for the area in which your deployment is located. Used for sending and receiving
+            SMS.</p>
+        </li><li class="listitem">
+          <p>Google Analytics (Universal Analytics) Key: Set your Google UA key here to provide analytics for your DHIS 2 instance. Most
+            places are covered, but it will not be provided for custom apps. Read more about Google Analytics at <a class="ulink" href="http://google.com/analytics" target="_top">http://google.com/analytics</a>
+              .</p>
+        </li><li class="listitem">
+          <p>Enable multi-organisation unit forms: Enable support for entering data forms for
+            multiple organisation units at the same time, in data entry, click on the parent
+            organisation unit for the children that you want to enter data for, and the dataset list
+            will include datasets that are assigned to the children of that parent.</p>
+        </li><li class="listitem">
+          <p>Omit indicator values with zero numerator value in data mart: Defines whether
+            aggregated indicator values with zero as the numerator value should be written to the
+            indicator data mart table. Having such values written is required for instance when
+            connecting Excel pivot tables to the data mart as Excel will need the numerator data to
+            correctly aggregate up in the organisation unit hierarchy. If third-party tools like
+            Excel are not used with the application this will reduce the total number of values
+            written to the data mart (which again will improve performance) and could safely be set
+            to omit.</p>
+        </li><li class="listitem">
+          <p>Put analytics in maintenance mode: Puts the analytics engine / Web API resource in
+            maintenance mode, implying that 503 Service Unavailable will be returned for all
+            requests. This is useful when you need to perform maintenance on the server like
+            rebuilding indexes while the server is running in production, in order to reduce load
+            and more efficiently carry out the maintenanec.</p>
+        </li></ul></div>
+    </div>
+    <div class="section" title="System appearance settings"><div class="titlepage"><div><div><h3 class="title"><a name="systemAppearanceSettings"></a>System appearance settings</h3></div></div></div>
+      
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Application title: Sets the application title on the top menu.</p>
+        </li><li class="listitem">
+          <p>Application introduction: Sets an introduction of the system. Will be visible on the
+            login page.</p>
+        </li><li class="listitem">
+          <p>Application notification: Sets a notification which should be displayed to users.
+            Will be visible on the front page.</p>
+        </li><li class="listitem">
+          <p>Style: Sets the style / look-and-feel of the system. The corresponding user style setting overrides this.</p>
+        </li><li class="listitem">
+          <p>Flag: Sets the flag which is displayed in the left menu of the dashboard module.</p>
+        </li><li class="listitem">
+          <p>Start page: Sets page / module which the user will be redirected to after logging in. The dashboard module is the recommended start module.</p>
+        </li></ul></div>
+    </div>
+    <div class="section" title="Email settings"><div class="titlepage"><div><div><h3 class="title"><a name="systemEmailSettings"></a>Email settings</h3></div></div></div>
+      
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Host name: Refers to the host name of the SMTP server. For instance when using
+            Google SMTP services this should be smtp.gmail.com.</p>
+        </li><li class="listitem">
+          <p>Port: The port to connect to the SMTP server.</p>
+        </li><li class="listitem">
+          <p>User name: The user name of the user account with the SMTP server. For instance mail@dhis2.org.</p>
+        </li><li class="listitem">
+          <p>Password: The password of the user account with the SMTP server.</p>
+        </li><li class="listitem">
+          <p>TLS: Refers to whether the SMPT server requires TLS for connections.</p>
+        </li></ul></div>
+    </div>
+    <div class="section" title="Access settings"><div class="titlepage"><div><div><h3 class="title"><a name="d5e3424"></a>Access settings</h3></div></div></div>
+      
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Self registration account user role: Defines which user role should be given to self-registered user accounts. To enable
+            self-registration of users, select any user role from the list. To disable it, select "Do not allow self registration". When
+            enabled, a link to the self-registration form will be displayed on the login page.</p>
+        </li><li class="listitem">
+          <p>Do not require recaptcha for self registration: Whether or not to use reCAPTCHA for user registration.</p>
+        </li><li class="listitem">
+          <p>Self registration account organisation unit: Defines which organisation unit should
+            be associated with self-registered users. Any organisation unit must be selected in
+            order to enable self registration.</p>
+        </li><li class="listitem">
+          <p>Enable user account recovery: Defines whether users are allowed to restore the
+            password of their account if they forgotten it. When enabled, a link to the account
+            recovery form will be displayed on the front page. User account recovery requires that
+            you have configured email settings (SMTP).</p>
+        </li><li class="listitem">
+          <p>Enable user account invite: Defines user account invites can be sent. Account
+            invites let you invite new users to create their own accounts by sending an email
+            invitation.</p>
+        </li><li class="listitem">
+          <p>Allow users to grant own user roles: Defines whether users should be allowed to
+            grant the user roles they are granted themselves to others.</p>
+        </li><li class="listitem">
+          <p>Users must belong to a group controlled by the user manager: This allows user groups
+            to play a role in user management. When checked, user A can manage user B only if user
+            B belongs to a user group to which user A has read/write access. When user A creates a
+            new user, she or he must assign the new user to such a user group.</p>
+        </li><li class="listitem">
+          <p>Require user account password change: Require that users change their password every
+            3,6,12 months. Please note that for 2.14 release, they will have to login through the
+            desktop to change passwords.</p>
+        </li><li class="listitem">
+          <p>OpenID provider: Defines the OpenId provider.</p>
+        </li><li class="listitem">
+          <p>OpenID provider label: Defines the label to display for the specified OpenID
+            provider.</p>
+        </li></ul></div>
+    </div>
+    <div class="section" title="Calendar settings"><div class="titlepage"><div><div><h3 class="title"><a name="d5e3447"></a>Calendar settings</h3></div></div></div>
+      
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Calendar: Defines which calendar system should be used throughout the system.</p>
+        </li><li class="listitem">
+          <p>Date format: Defines which date format should be used throughout the system.</p>
+        </li></ul></div>
+    </div>
+    <div class="section" title="Synchronization settings"><div class="titlepage"><div><div><h3 class="title"><a name="d5e3454"></a>Synchronization settings</h3></div></div></div>
+      
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Remote server URL: The URL of the remote server running DHIS 2 to upload data values
+            to. Use of SSL/HTTPS is recommended since username and password is sent with the request
+            (using basic authentication). The system will attempt to synchronize data once every
+            minute. Note that you must enable data synch from Data administration &gt;
+            Scheduling.</p>
+        </li><li class="listitem">
+          <p>Remote server username: The username of the DHIS 2 user account on the remote server
+            to use for data synchronization.</p>
+        </li><li class="listitem">
+          <p>Remote server password: The password of the DHIS 2 user account on the remote
+            server. The password will be stored encrypted.</p>
+        </li></ul></div>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch25s17.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="pt03.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch27.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Data synchronization&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;27.&nbsp;Data dimensions in DHIS2</td></tr></table></div></body></html>

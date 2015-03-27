@@ -1,0 +1,44 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Resource tables</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch25.html" title="Chapter&nbsp;25.&nbsp;Data Administration"><link rel="prev" href="ch25s03.html" title="Maintenance"><link rel="next" href="ch25s05.html" title="Locale Management"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Resource tables</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch25s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;25.&nbsp;Data Administration</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch25s05.html">Next</a></td></tr></table><hr></div><div class="section" title="Resource tables"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="resourceTables"></a>Resource tables</h2></div></div></div>
+    
+    <p>Resource tables are supporting tables that are used during analysis of data. One would
+      typically join the contents of these tables with the data value table when doing queries from
+      third-party applications like Microsoft Excel. They are also used extensively by the analysis modules of DHIS2. Regeneration of the resource tables should
+      only be done once all data integrity issues are resolved. The resource tables are also generated automatically, every time the analytics process is run by the system. </p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Organisation unit structure (_orgunitstructure)</p>
+        <p>This table should be regenerated any time there have been any changes made to the organisational unit hierarchy. This table provides information about the organisation unit hierarchy. It has one row for each organisation unit, one  column for each organisation unit level and the organisation unit identifiers for all parents in the lineage as values.</p>
+      </li><li class="listitem">
+        <p>Data element group set structure (_dataelementgroupsetstructure)</p>
+        <p>This table provides information about which data elements are members of which data element group sets. The table has one row for each data element,  one column for each data element group set and the names of the data element group as values.</p>
+      </li><li class="listitem">
+        <p>Indicator group set structure (_indicatorgroupsetstructure)</p>
+        <p>This table provides information about which indicators are members of which indicator group sets. The table has one row for each indicator, one column for each indicator group set and the names of the indicator group as values.</p>
+      </li><li class="listitem">
+        <p>Organisation unit group set structure (_organisationunitgroupsetstructure)</p>
+        <p>This table provides information about which organisation units are members of which organisation unit group sets. The table has one row for each organisation unit, one column for each organisation unit group set and the names of the organisation unit groups as values.</p>
+      </li><li class="listitem">
+        <p>Category structure (_categorystructure)</p>
+        <p>This table provides information about which data elements are members of which categories. The table has one row for each data element, one column for each category and the names of the category options as values.</p>
+      </li><li class="listitem">
+        <p>Data element category option combo name (_categoryoptioncomboname)</p>
+        <p>This table should be regenerated any time there have been changes made to the category
+          combination names. It contains readable names for the various combinations of
+          categories.</p>
+      </li><li class="listitem">
+        <p>Data element structure (_dataelementstructure)</p>
+        <p>This table provides information about all data elements and which period type
+          (frequency) they capture data at. The period type is determined through the data set
+          membership and hence relies on data elements to be member of data sets with similar period
+          types to have a defined behavior.</p>
+      </li><li class="listitem">
+        <p>Period structure (_dataperiodstructure)</p>
+        <p>This table provides information about all periods and which period type they are
+          associated with. For each period type with lower frequency than itself, it contains
+          information about which period if will fall within.</p>
+      </li><li class="listitem">
+        <p>Data element category option combinations (_dataelementcategoryoptioncombo)</p>
+        <p>This table provides a mapping between data elements and all possible category option combinations. </p>
+      </li></ul></div>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch25s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch25.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch25s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Maintenance&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Locale Management</td></tr></table></div></body></html>

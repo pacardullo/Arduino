@@ -1,0 +1,72 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>The time (period) dimension</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch27.html" title="Chapter&nbsp;27.&nbsp;Data dimensions in DHIS2"><link rel="prev" href="ch27s03.html" title="The organisation unit dimension"><link rel="next" href="ch27s05.html" title="Data collection vs. data analysis"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">The time (period) dimension</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch27s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;27.&nbsp;Data dimensions in DHIS2</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch27s05.html">Next</a></td></tr></table><hr></div><div class="section" title="The time (period) dimension"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e3698"></a>The time (period) dimension</h2></div></div></div>
+    
+    <p>The period dimension becomes an important factor when analysing data over time e.g. when looking at cumulative data, when creating quarterly or annual aggregated reports, or when doing analysis that combines data with different characteristics like monthly routine data, annual census/population data or six-monthly staff data.</p>
+    <div class="section" title="Period Types"><div class="titlepage"><div><div><h3 class="title"><a name="d5e3701"></a>Period Types</h3></div></div></div>
+      
+      <p>In DHIS2 the periods are organised according to a set of fixed period types: 1) Daily, 2) Weekly, 3) Monthly, 4) Quarterly, 5) Six-monthly, 6) Yearly, 7) Two-yearly, and 8) a special period type called Relative.
+
+</p>
+      <p>As a rule of thumb all organisation units should collect the same data using the same frequency or periodicity, so first of all the periods play an important role in standardising data collection across the country. A data entry form therefore needs to know its period type to make sure data is always collected according to the correct and same periodicity across the country. </p>
+      <p>It is possible however to collect the same data elements using different period types by
+        assigning the same data elements to multiple data sets with different period types, however
+        then it becomes crucial to make sure no orgunit is collecting data using both data
+        sets/period types as that would create overlap and duplication of data values. If set up
+        correctly the aggregation service in DHIS2 (through datamart and report tables) will
+        aggregate the data together, e.g. the monthly data from one part of the country with
+        quarterly data from another part of the country into a national quarterly report. For
+        simplicity and to avoid data duplication we strongly advice to use the same period type for
+        all orgunits for the same data elements when possible. </p>
+    </div>
+    <div class="section" title="Relative periods"><div class="titlepage"><div><div><h3 class="title"><a name="d5e3706"></a>Relative periods</h3></div></div></div>
+      
+      <p>When creating reports within the DHIS (report tables, standard reports, charts) it is
+        possible to make use of the relative periods functionality. The simplest scenario is when
+        you want to design a monthly report that can be reused every month without having to make
+        changes to the report template to accommodate for the changes in period. The relative period
+        called reporting_month allows for this, and the user can at the time of report generation
+        through a report parameter select the month to use in the report. </p>
+      <p>A slightly more advanced use case is  when you want to make a monthly summary report for immunisation and want to look at the data from the current (reporting) month together with a cumulative value for the year so far. The relative period called "So far this year" provides such a cumulative value relative to the reporting month selecting when running the report. Other relative periods are the last 3,6, 9 or 12 months periods which are cumulative values calculated back from the selected reporting month. If you want to create a report with data aggregated by quarters (the ones that have passed so far in the year) you can select "Individual quarters this year". Other relative periods are described under the reporting table section of the manual. Common for all the relative periods is that they are relative to a selected reporting month. Even quarterly or annual reports need to know their reporting month to derive the year, the quarter and so on. The reporting month then becomes one of the report parameters the users have to select when running a report based on relative periods.</p>
+      <div class="table"><a name="d5e3711"></a><p class="title"><b>Table&nbsp;27.5.&nbsp;</b></p><div class="table-contents">
+          
+          <table summary="" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5"></colgroup><thead><tr><th>Organisation Unit</th><th>Data Element</th><th>Reporting month</th><th>So far this year</th><th>Reporting month name</th></tr></thead><tbody><tr><td>Gerehun CHC</td><td>Measles doses given</td><td>15</td><td>167</td><td>Oct-09</td></tr><tr><td>Tugbebu CHP</td><td>Measles doses given</td><td>17</td><td>155</td><td>Oct-09</td></tr></tbody></table>
+        </div></div><p><br class="table-break"></p>
+    </div>
+    <div class="section" title="Aggregation of periods"><div class="titlepage"><div><div><h3 class="title"><a name="d5e3739"></a>Aggregation of periods</h3></div></div></div>
+      
+      <p>While data needs to be collected on a given frequency to standardise data collection and management, this does not put limitations on the period types that can be used in data analysis and reports. Just like data gets aggregated up the organisational hierarchy, data is also aggregated according to a period hierarchy, so you can create quarterly and annual reports based on data that is being collected on a Monthly basis. The defined period type for a data entry form (data set) defines the lowest level of period detail possible in a report.</p>
+      <div class="section" title="Sum and average aggregation along the period dimension"><div class="titlepage"><div><div><h4 class="title"><a name="d5e3742"></a>Sum and average aggregation along the period dimension</h4></div></div></div>
+        
+        <p>When aggregating data on the period dimension there are two options for how the calculation is done; 1) sum and 2) average, which is specified per data element in the DHIS2 through the use of the 'aggregation operator' attribute in the Add/Edit Data Elements window.
+
+</p>
+        <p>Most of the data collected on a routinely basis should be aggregated by summing up the months or weeks, e.g. you create a quarterly report on Measles immunisation by summing up the three monthly values for "Measles doses given". 
+
+</p>
+        <p>Other types of data that are more permanently valid over time like "Number of staff in the PHU" or an annual population estimate of "Population under 1 year" need to be aggregated differently. These values are static for all months as long as there are valid data. E.g. the estimated population under 1 calculated from the census data is the same for all months in a year, or the number of nurses working in a PHU is the same for every month in the 6 months period the number is reported for. 
+
+</p>
+        <p>This difference e.g. becomes important when calculating an annual value for the
+          indicator morbidity service burden for a PHU. The monthly headcounts are summed up for the
+          12 months to get the annual headcount while the number of staff for the PHU is calculated
+          as the average of the two 6-monthly values reported through the 6-monthly staff report. So
+          in this example the data element "OPD headcount" would have the aggregation
+          operator "sum" and the data element "Number of staff" would have it
+          set to "average". </p>
+        <p>Another important feature of average data elements is the validity period concept.
+          Average data values are standing values for any period type within the borders of the
+          period they are registered for. E.g. an annual population estimate following the calendar
+          year will have the same value for any period that falls within that year no matter what
+          the period type. E.g. if the population under 1 for a Tugbebu CHP is 250 for the year of
+          2009 that means that the value will be 250 for Jan-09, for Q3-09, for Week 12 of 2009 and
+          for any period within 2009. This has implications for how e.g. coverage indicators are
+          calculated as the full annual population will be used as denominator value even when doing
+          monthly reports. If you want to look at an estimated annual coverage value for a given
+          month then you will have the option of setting the indicator to "Annualised"
+          which means that a monthly coverage value will be multiplied by 12, a quarterly value by 4
+          etc. The annualised indicator feature can therefore be used to mimic the use of monthly
+          population estimates. </p>
+      </div>
+    </div>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch27s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch27.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch27s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">The organisation unit dimension&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Data collection vs. data analysis</td></tr></table></div></body></html>

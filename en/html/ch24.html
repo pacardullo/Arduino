@@ -1,0 +1,166 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;24.&nbsp;Import and export</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="pt03.html" title="Part&nbsp;Volume III: Administrator Guide.&nbsp;Volume III: Administrator Guide"><link rel="prev" href="ch23s05.html" title="Approving by category option group set"><link rel="next" href="ch24s02.html" title="Importing data"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;24.&nbsp;Import and export</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch23s05.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;Volume III: Administrator Guide.&nbsp;Volume III: Administrator Guide</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch24s02.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter&nbsp;24.&nbsp;Import and export"><div class="titlepage"><div><div><h2 class="title"><a name="d5e2422"></a>Chapter&nbsp;24.&nbsp;Import and export</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ch24.html#d5e2431">Meta-data import</a></span></dt><dd><dl><dt><span class="section"><a href="ch24.html#d5e2433">XML Meta-data import</a></span></dt><dt><span class="section"><a href="ch24.html#d5e2472">Importing CSV meta-data</a></span></dt><dt><span class="section"><a href="ch24.html#d5e2835">GML data import</a></span></dt></dl></dd><dt><span class="section"><a href="ch24s02.html">Importing data</a></span></dt><dd><dl><dt><span class="section"><a href="ch24s02.html#import_another_instance">XML data import</a></span></dt><dt><span class="section"><a href="ch24s02.html#importCSVdata">Importing CSV data</a></span></dt><dt><span class="section"><a href="ch24s02.html#d5e2905">Event data import</a></span></dt><dt><span class="section"><a href="ch24s02.html#importPDFdata">Importing PDF data</a></span></dt><dt><span class="section"><a href="ch24s02.html#dhis14import">Importing data from DHIS 1.4</a></span></dt></dl></dd><dt><span class="section"><a href="ch24s03.html">Exporting data and meta-data</a></span></dt><dd><dl><dt><span class="section"><a href="ch24s03.html#d5e2985">Metadata export</a></span></dt><dt><span class="section"><a href="ch24s03.html#d5e2994">Meta-data detailed export</a></span></dt><dt><span class="section"><a href="ch24s03.html#d5e3013">Data export</a></span></dt><dt><span class="section"><a href="ch24s03.html#d5e3021">Event data export</a></span></dt><dt><span class="section"><a href="ch24s03.html#d5e3033">Exporting data to other systems</a></span></dt></dl></dd></dl></div>
+  
+  <p>In a primary health system, the HMIS typically involves a distributed application, where the
+    same application is running in different geographical locations (PHCs,CHCs, hospitals,
+    districts, and state). Most of these physical locations do not have Internet connectivity, and
+    hence they work off-line. At some point (normally at the district level), the data needs to be
+    synchronised in order to have a consolidated database for the a particular geographical region.
+    For this, it is important to be able to export data from one location (which is working offline,
+    say at the health facility level) to another one say at the district level where the data would
+    need to be imported. This feature of exporting and importing is thus a crucial function of a
+    HMIS. This feature also helps us overcome the dependency on Internet to some degree, as data
+    updates can be transferred via USB key where there is no connectivity, or through email where
+    there is limited Internet connectivity. DHIS 2 provides robust export-import functionality to
+    fulfill these needs. </p>
+  <p>To access the main Import-Export module, choose <span class="guimenu">Services-&gt;Import-Export. </span>A number of services are available, all of which will be described in detail in respective sections below. </p>
+  <div class="screenshot">
+    <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/import_export/import_export_overview.png" align="middle" width="100%"></td></tr></table></div>
+  </div>
+  <div class="section" title="Meta-data import"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e2431"></a>Meta-data import</h2></div></div></div>
+    
+    <div class="section" title="XML Meta-data import"><div class="titlepage"><div><div><h3 class="title"><a name="d5e2433"></a>XML Meta-data import</h3></div></div></div>
+      
+      <p>Meta-data in the XML format known as DXF2 can be easily imported by accessing Services-&gt;Import-Export-&gt;Meta-Data import. Select the XML file by pressing "Select" and choose the file from your local file system. Both raw XML as well as a ZIP archive of the XML are supported.  </p>
+      <div class="screenshot">
+        
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/import_export/import_default.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>There are two separate options for importing data. </p>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Dry run: This is similar to the old preview option, this will do a dry run import,
+            and give you information about any errors.</p>
+        </li><li class="listitem">
+          <p>Strategy: There are three options here, "New and Updates", "New only", and "Update
+            only". New and updates tells the importer to expect both new meta-data, and updates to
+            existing ones. New only will only accept fresh meta-data, usually you would use this on a
+            empty database. Updates only will only allow the meta-data to match meta-data that is
+            already there (same identifiers, new name etc).</p>
+        </li></ul></div>
+      <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="resources/images/admon/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+        <p><span class="bold"><strong>It is highly recommend always using the Dry run option</strong></span> when importing data to make sure you keep control over any changes
+            to your meta-data and databases being out of synch on data elements or orgunit
+            names</p>
+      </td></tr></table></div>
+      <div class="section" title="Dry run before importing"><div class="titlepage"><div><div><h4 class="title"><a name="d5e2450"></a>Dry run before importing</h4></div></div></div>
+        
+        <p>Before doing the import into your database, it is highly recommended that you run the
+          import with the dry run option set to true first. This will enabled you to have a look at
+          how many new, updates, and ignored meta-data there will be. After you have selected your
+          file, set dry run to true, you can now click the import button. After doing this, you will
+          be greeted by this window.</p>
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/import_export/display_import_summary.png" align="middle" width="100%"></td></tr></table></div>
+        <p>Here you can see a short summary of what was contained in your import file. To see
+          further details, please click on the "display import summary" link.</p>
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/import_export/import_summary.png" align="middle" width="100%"></td></tr></table></div>
+        <p>Here you can see that the import dry run was successful and the import contained
+            <span class="bold"><strong>1</strong></span> new organisation unit, <span class="bold"><strong>1332</strong></span> updated, and <span class="bold"><strong>4</strong></span> organisation unit
+          levels.</p>
+        <p>Below you can see another example.</p>
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/import_export/import_summary_conflicts.png" align="middle" width="100%"></td></tr></table></div>
+        <p>Here you can see that the organisation unit Nduvuibu MCHP had a unknown reference to
+          an object with ID "aaaU6Kr7Gtpidn", which means that an object with this ID was not
+          present in your imported file, and it could not be found in the existing database. Its
+          important to note that even if a reference could not be found, the object will still be
+          imported, but you might have to fix this directly in DHIS 2 later, if the reference should
+          have pointed to something else.</p>
+      </div>
+      <div class="section" title="Matching identifiers in DXF2"><div class="titlepage"><div><div><h4 class="title"><a name="d5e2469"></a>Matching identifiers in DXF2</h4></div></div></div>
+        
+        <p>The DXF2 format currently support matching for two identifiers, the internal DHIS2 identifier (known as a UID), and also using an  external identifier called called a "code". When the importer is trying to search for
+        references (like the one above), it will first go to the UID field, and then to the code
+        field. This allows you to import from legacy systems without having a UID for every meta-data
+        object. I.e. if you are importing facility data from a legacy system, you can leave out the
+        ID field completely (DHIS 2 will fill this in for you) and the put the legacy systems own
+        identifiers in the code field, this identifier is required to be unique. This not only works
+        for organisation units, but for all kinds of meta-data, allowing for easy import from other
+        systems.</p>
+      </div>
+    </div>
+    <div class="section" title="Importing CSV meta-data"><div class="titlepage"><div><div><h3 class="title"><a name="d5e2472"></a>Importing CSV meta-data</h3></div></div></div>
+      
+      <p>DHIS 2 supports import of meta-data in the CSV format. Columns which are not required
+        can be omitted in the CSV file, but the order will be affected. If you would like to specify
+        columns which appear late in the order but not specify columns which appear early in the
+        order you can include empty columns ("") for them.</p>
+      <p>To import CV meta-data go to import-export module and select CSV Meta-Data Import form
+        the left side menu. You must select the object type which your CSV file contains. You can
+        only upload one type of objects at the time. Upload your file and click update. The
+        following object types are supported:</p>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Data elements</p>
+        </li><li class="listitem">
+          <p>Data element groups</p>
+        </li><li class="listitem">
+          <p>Category options</p>
+        </li><li class="listitem">
+          <p>Category option groups</p>
+        </li><li class="listitem">
+          <p>Organisation units</p>
+        </li><li class="listitem">
+          <p>Organisation unit groups</p>
+        </li><li class="listitem">
+          <p>Validation rules</p>
+        </li><li class="listitem">
+          <p>Option sets</p>
+        </li></ul></div>
+      <p>The formats for the currently supported object types for CSV import are listed
+      below.</p>
+      <div class="table"><a name="d5e2494"></a><p class="title"><b>Table&nbsp;24.1.&nbsp;Data Element CSV Format</b></p><div class="table-contents">
+        
+        <table summary="Data Element CSV Format" border="1"><colgroup><col class="c1"><col class="c2"><col class="newCol3"><col class="c3"></colgroup><thead><tr><th>Column</th><th>Required</th><th>Value (default first)</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Yes</td><td>&nbsp;</td><td>Name. Max 230 char. Unique.</td></tr><tr><td>UID</td><td>No</td><td>UID</td><td>Stable identifier. Max 11 char. Will be generated by system if not specified.</td></tr><tr><td>Code</td><td>No</td><td>&nbsp;</td><td>Stable code. Max 50 char.</td></tr><tr><td>Short name</td><td>No</td><td>50 first char of name</td><td>Will fall back to first 50 characters of name if unspecified. Max 50 char. Unique.</td></tr><tr><td>Description</td><td>No</td><td>&nbsp;</td><td>Free text description.</td></tr><tr><td>Form name</td><td>No</td><td>&nbsp;</td><td>Max 230 char.</td></tr><tr><td>Domain type</td><td>No</td><td>aggregate | tracker</td><td>Domain type for data element, can be aggregate or tracker. Max 16 char.</td></tr><tr><td>Value type</td><td>No</td><td>int | string | bool | trueOnly | date | unitInterval</td><td>Value type. Max 16 char.</td></tr><tr><td>Number type</td><td>No</td><td>int | posInt | negInt | number | zeroPositiveInt</td><td>Only relevant if type is int. Max 16 char.</td></tr><tr><td>Text type</td><td>No</td><td>text | longText</td><td>Only relevant if type is string. Max 16 char.</td></tr><tr><td>Aggregation operator</td><td>No</td><td>sum | average | count | stddev | variance</td><td>Operator indicating how to aggregate data in the time dimension. Max 16 char.</td></tr><tr><td>Category combination UID</td><td>No</td><td>UID</td><td>Stable identifier. Max 11 char. Will default to default category combination if not specified.</td></tr><tr><td>Url</td><td>No</td><td>&nbsp;</td><td>URL to data element resource. Max 255 char.</td></tr><tr><td>Zero is significant</td><td>No</td><td>false | true</td><td>Indicates whether zero values will be stored for this data element.</td></tr></tbody></table>
+      </div></div><br class="table-break">
+      <div class="table"><a name="d5e2578"></a><p class="title"><b>Table&nbsp;24.2.&nbsp;Organisation Unit CSV Format</b></p><div class="table-contents">
+        
+        <table summary="Organisation Unit CSV Format" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup><thead><tr><th>Column</th><th>Required</th><th>Value (default first)</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Yes</td><td>&nbsp;</td><td>Name. Max 230 characters. Unique.</td></tr><tr><td>UID</td><td>No</td><td>UID</td><td>Stable identifier. Max 11 char. Will be generated by system if not specified.</td></tr><tr><td>Code</td><td>No</td><td>&nbsp;</td><td>Stable code. Max 50 char.</td></tr><tr><td>Parent UID</td><td>No</td><td>UID</td><td>Stable identifier. Max 11 char.</td></tr><tr><td>Short name</td><td>No</td><td>50 first char of name</td><td>Will fall back to first 50 characters of name if unspecified. Max 50 characters. Unique.</td></tr><tr><td>Description</td><td>No</td><td>&nbsp;</td><td>Free text description.</td></tr><tr><td>UUID</td><td>No</td><td>&nbsp;</td><td>UUID. Max 36 char.</td></tr><tr><td>Opening date</td><td>No</td><td>1970-01-01</td><td>Opening date of organisation unit in YYYY-MM-DD format.</td></tr><tr><td>Closed date</td><td>No</td><td>&nbsp;</td><td>Closed date of organisation unit in YYYY-MM-DD format, skip if currently open.</td></tr><tr><td>Comment</td><td>No</td><td>&nbsp;</td><td>Free text comment for organisation unit.</td></tr><tr><td>Feature type</td><td>No</td><td>&nbsp;</td><td>Can be Point, Polygon, MultiPolygon. Max 50 char.</td></tr><tr><td>Coordinates</td><td>No</td><td>&nbsp;</td><td>Coordinates used for geospatial analysis in Geo JSON format.</td></tr><tr><td>URL</td><td>No</td><td>&nbsp;</td><td>URL to organisation unit resource. Max 255 char.</td></tr><tr><td>Contact person</td><td>No</td><td>&nbsp;</td><td>Contact person for organisation unit. Max 255 char.</td></tr><tr><td>Address</td><td>No</td><td>&nbsp;</td><td>Address for organisation unit. Max 255 char.</td></tr><tr><td>Email</td><td>No</td><td>&nbsp;</td><td>Email for organisation unit. Max 150 char.</td></tr><tr><td>Phone number</td><td>No</td><td>&nbsp;</td><td>Phone number for organisation unit. Max 150 char.</td></tr></tbody></table>
+      </div></div><br class="table-break">
+      <div class="table"><a name="d5e2677"></a><p class="title"><b>Table&nbsp;24.3.&nbsp;Validation Rule CSV Format</b></p><div class="table-contents">
+        
+        <table summary="Validation Rule CSV Format" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup><thead><tr><th>Column</th><th>Required</th><th>Value (default first)</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Yes</td><td>&nbsp;</td><td>Name. Max 230 characters. Unique.</td></tr><tr><td>UID</td><td>No</td><td>UID</td><td>Stable identifier. Max 11 char. Will be generated by system if not specified.</td></tr><tr><td>Code</td><td>No</td><td>&nbsp;</td><td>Stable code. Max 50 </td></tr><tr><td>Description</td><td>No</td><td>&nbsp;</td><td>Free text description.</td></tr><tr><td>Instruction</td><td>No</td><td>&nbsp;</td><td>Free text instruction.</td></tr><tr><td>Importance</td><td>No</td><td>medium | high | low</td><td>&nbsp;</td></tr><tr><td>Rule type</td><td>No</td><td>validation | surveillance</td><td>&nbsp;</td></tr><tr><td>Operator</td><td>No</td><td>equal_to | not_equal_to | greater_than | greater_than_or_equal_to | less_than | less_than_or_equal_to | compulsory_pair</td><td>&nbsp;</td></tr><tr><td>Period type</td><td>No</td><td>Monthly | Daily | Weekly | Quarterly | SixMontly | Yearly</td><td>&nbsp;</td></tr><tr><td>Left side expression</td><td>Yes</td><td>&nbsp;</td><td>Mathematical formula based on data element and option combo UIDs.</td></tr><tr><td>Left side expression description</td><td>Yes</td><td>&nbsp;</td><td>Free text.</td></tr><tr><td>Left side null if blank</td><td>No</td><td>false | true</td><td>Boolean.</td></tr><tr><td>Right side expression</td><td>Yes</td><td>&nbsp;</td><td>Mathematical formula based on data element and option combo UIDs.</td></tr><tr><td>Right side expression description</td><td>Yes</td><td>&nbsp;</td><td>Free text.</td></tr><tr><td>Right side null if blank</td><td>No</td><td>false | true</td><td>Boolean.</td></tr></tbody></table>
+      </div></div><br class="table-break">
+      <div class="table"><a name="d5e2766"></a><p class="title"><b>Table&nbsp;24.4.&nbsp;Option Set CSV Format</b></p><div class="table-contents">
+        
+        <table summary="Option Set CSV Format" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup><thead><tr><th>Column</th><th>Required</th><th>Value (default first)</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Yes</td><td>&nbsp;</td><td>Name. Max 230 characters. Unique. The option set values should be repeated for each option.</td></tr><tr><td>UID</td><td>No</td><td>UID</td><td>Stable identifier. Max 11 char. Will be generated by system if not specified.</td></tr><tr><td>Code</td><td>No</td><td>&nbsp;</td><td>Stable code. Max 50 char.</td></tr><tr><td>Option</td><td>Yes</td><td>&nbsp;</td><td>Option. Free text. The option set values should be repeated for each option.</td></tr></tbody></table>
+      </div></div><br class="table-break">
+      <div class="table"><a name="d5e2800"></a><p class="title"><b>Table&nbsp;24.5.&nbsp;Data Element Group, Category Option, Category Option Group, Organisation Unit Group CSV Format</b></p><div class="table-contents">
+        
+        <table summary="Data Element Group, Category Option, Category Option Group, Organisation Unit Group CSV Format" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup><thead><tr><th>Column</th><th>Required</th><th>Value (default first)</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Yes</td><td>&nbsp;</td><td>Name. Max 230 characters. Unique.</td></tr><tr><td>UID</td><td>No</td><td>UID</td><td>Stable identifier. Max 11 char. Will be generated by system if not specified.</td></tr><tr><td>Code</td><td>No</td><td>&nbsp;</td><td>Stable code. Max 50 char.</td></tr></tbody></table>
+      </div></div><br class="table-break">
+      <p>An example of a CSV file for data elements can be seen below. The first row will always
+        be ignored. Notice how you can skip columns and rely on default values or simply leave
+        columns blank:</p>
+      <pre class="screen">name,uid,code,shortname,description,formname,domaintype,type,numbertype,texttype,aggregationoperator,categorycombo,url,zero
+"Women participated in skill development training",,"D0001","Women participated development training"
+"Women participated in community organizations",,"D0002","Women participated community organizations"</pre>
+      <p>A minimal example for importing organisation units with a parent unit looks like
+        this:</p>
+      <pre class="screen">name,uid,code,parent
+"West province",,"WESTP","ImspTQPwCqd"
+"East province",,"EASTP","ImspTQPwCqd"</pre>
+      <p>The format for option sets is special. One record represents an option, and the three
+        first values representing the option set should be repeated for each option (record):</p>
+      <pre class="screen">name,uid,code,option
+"Color",,,"Blue"
+"Color",,,"Green"
+"Gender",,,"Female"
+"Gender",,,"Male"</pre>
+    </div>
+    <div class="section" title="GML data import"><div class="titlepage"><div><div><h3 class="title"><a name="d5e2835"></a>GML data import</h3></div></div></div>
+      
+      <p>The GML import function can be used to import data prepared in the Geography Markup Language (GML). GML can be used to update the coordinates (both polygons and points). Once you have prepared your GML file as detailed in the chapter on "Importing coordinates", you can load the file with this function. </p>
+      <p>It is currently not possible to import an organisation unit hierarchy with GML.
+        Therefore, you should create the organisation unit hierarchy separately, and then use GML to
+        update the coordinates once the hierarchy has been created. </p>
+      <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="resources/images/admon/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+        <p>Currently, it is only possible to import GML data by matching on the name of the
+          organisation unit itself. Therefore, if you have organisation units with the same name in
+          your organisation unit hierarchy (e.g. two clinics with exactly the same name), you will
+          need to distinguish them before importing GML. Otherwise, both organisation units may be
+          updated with the same set of coordinates. </p>
+      </td></tr></table></div>
+    </div>
+  </div>
+  
+  
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch23s05.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="pt03.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch24s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Approving by category option group set&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Importing data</td></tr></table></div></body></html>

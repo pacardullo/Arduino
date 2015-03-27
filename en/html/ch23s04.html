@@ -1,0 +1,26 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Approving data</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch23.html" title="Chapter&nbsp;23.&nbsp;Data approval"><link rel="prev" href="ch23s03.html" title="Configure approving data"><link rel="next" href="ch23s05.html" title="Approving by category option group set"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Approving data</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch23s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;23.&nbsp;Data approval</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch23s05.html">Next</a></td></tr></table><hr></div><div class="section" title="Approving data"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e2277"></a>Approving data</h2></div></div></div>
+    
+    <p>To approve data, go to <span class="italic">Reports</span> and choose <span class="italic">Data Approval</span>. When this report shows data that is configured for approval, it shows the approval status of the data in the report. The approval status will be one of the following:</p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p><span class="bold"><strong>Waiting for lower level org units to approve</strong></span> - This data is not yet ready to be approved, because it first needs to be approved for all the child organisation units to this organisation unit, for the same data set and period.</p>
+      </li><li class="listitem">
+        <p><span class="bold"><strong>Ready for approval</strong></span> - This data may now be approved by an authorized user.</p>
+      </li><li class="listitem">
+        <p><span class="bold"><strong>Approved</strong></span> - This data has already been approved.</p>
+      </li><li class="listitem">
+        <p><span class="bold"><strong>Approved and accepted</strong></span> - This data has already been approved, and also accepted.</p>
+      </li></ul></div>
+    <p>If the data you are viewing is in an approval state that can be acted upon, and if you have sufficient authority, one or more of the following actions will be available to you on the <span class="italic">Data Approval</span> form:</p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p><span class="bold"><strong>Approve</strong></span> - Approve data that has not yet been approved, or that was formerly approved and has been unapproved.</p>
+      </li><li class="listitem">
+        <p><span class="bold"><strong>Unapprove</strong></span> - Return to an unapproved state data that has been approved or accepted.</p>
+      </li><li class="listitem">
+        <p><span class="bold"><strong>Accept</strong></span> - Accept data that has  been approved.</p>
+      </li><li class="listitem">
+        <p><span class="bold"><strong>Unaccept</strong></span> - Return to an unaccepted (but still approved) state data that has been accepted.</p>
+      </li></ul></div>
+    <p>In order to unapprove data for a given organisation unit, you must have the authority to approve data for that organisation unit or to approve data for a higher-level organisation unit to which that data is aggregated. The reason for this is as follows: If you are reviewing data for approval at a higher organisation unit level, you should consider whether the data at lower organisation units are reasonable. If all lower-level data looks good, you can approve the data at the higher level. If some lower-level data looks suspect, you can unapprove the data at the lower level. This allows the data to be reviewed again at the lower level, corrected if necessary, and re-approved up through the organisation unit levels according to the hierarchy.</p>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch23s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch23.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch23s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Configure approving data&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Approving by category option group set</td></tr></table></div></body></html>

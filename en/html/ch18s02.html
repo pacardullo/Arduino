@@ -1,0 +1,35 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Sharing and access control</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch18.html" title="Chapter&nbsp;18.&nbsp;Sharing"><link rel="prev" href="ch18.html" title="Chapter&nbsp;18.&nbsp;Sharing"><link rel="next" href="ch18s03.html" title="Sharing applied"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Sharing and access control</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch18.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;18.&nbsp;Sharing</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch18s03.html">Next</a></td></tr></table><hr></div><div class="section" title="Sharing and access control"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e1715"></a>Sharing and access control</h2></div></div></div>
+    
+    <p>The objects which support sharing are indicator, indicator group, indicator group set,
+      data dictionary, data set, program, standard report, resource, report table, chart, map and
+      user group. Out of those objects, report table, chart, map and user group are open for
+      everyone to create privately. Private means that the objects are available only to yourself or
+      potentially to a number of user groups if you choose to share the object. These objects are
+      referred to as "open" objects and can be created by all users. The remaining objects require
+      that your user account has the authority to create them. These objects are referred to as
+      "non-open" objects.</p>
+    <p>A user can be granted the authority to create publicly accessible objects or privately
+      accessible objects. In order to create a publicly accessible object (available for viewing or
+      editing by anyone) your user account must have the authority to do so. As an example, to
+      create a publicly accessible chart, your user must have the "Create public chart" authority
+      granted. The authority to create private objects applies only to non-open objects. For
+      example, to allow a user to create indicators which will only be accessible to that user and
+      not to everyone, the user can be issued with the "Create private indicator" authority.</p>
+    <p>Sharing a non-open object with another person and let her edit the object requires that
+      the person's user account has the authority for updating that type of objects granted. For
+      instance, if you want to let another person edit your indicator, that person's user account
+      must have the "Update indicator" authority granted. This does not apply for open
+      objects.</p>
+    <p>When you create a new object it will automatically become viewable for everyone if your
+      user account has the authority to create public objects. As an example, if you create a
+      standard report and you have the "Create public standard report" authority granted, the report
+      will become viewable for everyone. If you do not have that authority granted the report will
+      be viewable only to yourself. After you have created an object, you may navigate to the
+      "Sharing settings" dialog and set your desired access control level.</p>
+    <p>If you need a user account which is able to view absolutely all objects you can create a
+      user role with the "ALL" authority and assign a user to that role. If you need to switch
+      between a "complete" view of objects and a "personal" view of objects it is recommended to
+      create two user accounts, one assigned with the "ALL" authority and one without.</p>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch18.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch18.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch18s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;18.&nbsp;Sharing&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Sharing applied</td></tr></table></div></body></html>

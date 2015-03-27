@@ -1,0 +1,116 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Exporting data and meta-data</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch24.html" title="Chapter&nbsp;24.&nbsp;Import and export"><link rel="prev" href="ch24s02.html" title="Importing data"><link rel="next" href="ch25.html" title="Chapter&nbsp;25.&nbsp;Data Administration"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Exporting data and meta-data</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch24s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;24.&nbsp;Import and export</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch25.html">Next</a></td></tr></table><hr></div><div class="section" title="Exporting data and meta-data"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="export"></a>Exporting data and meta-data</h2></div></div></div>
+    
+    <p>DHIS2 makes it possible to export various types of data in multiple data formats. You can
+      export your data, also referred to as measures or facts; and your meta-data, which refers to
+      the information describing your data. Data can be exported both in raw, non-aggregated format
+      and in aggregated format. It is also possible to export a combination of data and meta-data in
+      case you have special requirements. This chapter covers mainly how to export data and
+      meta-data through the user interface of the import-export DHIS 2 module. Data can also be
+      exported programmatically through the DHIS 2 Web API, and it is useful to be aware of the
+      various options available:</p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Export raw, non-aggregated data through the user interface: Covered in this
+          chapter.</p>
+      </li><li class="listitem">
+        <p>Export aggregated data programmatically through the Web API: Please refer to the Web
+          API chapter, section on Analytics.</p>
+      </li><li class="listitem">
+        <p>Export a combination of data and meta-data: Please refer to the SQL view sections in
+          the Data administration chapter and Web API chapter.</p>
+      </li><li class="listitem">
+        <p>Export meta-data through the user interface: Covered in this chapter.</p>
+      </li><li class="listitem">
+        <p>Export meta-data programmatically through the Web API: Please refer to the Web API
+          chapter, section on meta data.</p>
+      </li></ul></div>
+    <p>Data can be exported on various formats, including DXF 2 (the DHIS 2 meta-data and data
+      exchange format based on XML), CSV, PDF, MS Excel and the DHIS 1.4 XML format. </p>
+    <p>Another aspect of data export is the type of DHIS 2 deployment. In the case of online
+      deployment, all data is saved into a single database only. In an offline deployment, each
+      instance will store data in a separate database in their local system. In an offline
+      deployment, after the data entry is finished, data will have to be manually sent to the next
+      level in the organizational hierarchy. In an on-line application this is not required, as all
+      data is captured over an Internet connection and stored in a central location.</p>
+    <div class="section" title="Metadata export"><div class="titlepage"><div><div><h3 class="title"><a name="d5e2985"></a>Metadata export</h3></div></div></div>
+      
+      <p>Meta-data is "data about data". In the context of DHIS 2, meta-data consists
+          of definitions of data elements, indicators, the structure and names contained in the
+          organizational hierarchy, and other options. Click on the "Meta-data export" link
+          from the main "Data export" screen in order to access this. Just select the
+          features, format, and the compression that you want and click "Export". This
+          metadata file can then be transmitted just like a data file, except it will contain
+          information on the definitions of the various features, as opposed to the values of the
+          data themselves. </p>
+      <div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/import_export/metadata_export.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>Simply choose the objects which you would like to export, and click <span class="guibutton">"Export"</span>. </p>
+    </div>
+    <div class="section" title="Meta-data detailed export"><div class="titlepage"><div><div><h3 class="title"><a name="d5e2994"></a>Meta-data detailed export</h3></div></div></div>
+      
+      <p>In certain implementations, it may be useful to create groups of metadata objects which should always be exported together. To access this feature, click " Meta-data detailed export" from the left side menu of the "Import-export" dialog. </p>
+      <div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td align="center"><img src="resources/images/import_export/metadata_detailed_export_main.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>A list of available metadata export filters will be shown. Click on the name of the filter you would like to edit and then select "Edit" from the context menu. An example of the dialog is shown below. </p>
+      <div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="75%"><tr><td align="center"><img src="resources/images/import_export/metadata_detail_export_select.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>In this example, we have created a metadata export filter, to export all "Constants" from the system. If any meta-data objects have been selected to be part of the filter, they will be highlighted in green. Click on the name of the objects you would like to export, and add them to the right side to be selected to be part of the export. Once you have composed the filter as needed, click "Save" (when editing) or "Add" (when adding a new metadata filter). </p>
+      <p>To export the filter, click on the name from the main "Meta-data detailed export" menu, and choose "Export" from the context menu. The following dialog will appear. </p>
+      <div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="40%"><tr><td align="center"><img src="resources/images/import_export/metadata_detail_export_dialog.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>You can choose to export the data as XML or JSON format. You can also specify whether or not the result should be zipped or unzipped. Lastly, if you click check "Export with dependencies", all dependent meta-data objects which the ones you have selected depend upon, will also be exported. </p>
+    </div>
+    <div class="section" title="Data export"><div class="titlepage"><div><div><h3 class="title"><a name="d5e3013"></a>Data export</h3></div></div></div>
+      
+      <p>To export  raw data from DHIS2, choose "Services-&gt;Import-export-&gt;Data export". Select the organisation unit(s), the start and end date,  and dataset or data sets for which data export should be selected. Click "Export as XML" to export data as XML and "Export as CSV" to export data in CSV format. </p>
+      <div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/import_export/export_to_dhis2.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>A pop-up save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the &#8216;Save to Disk&#8217; option from the pop-up prompt.
+</p>
+    </div>
+    <div class="section" title="Event data export"><div class="titlepage"><div><div><h3 class="title"><a name="d5e3021"></a>Event data export</h3></div></div></div>
+      
+      <p>Event (or tracker) data can be exported by accessing the "Event data export" function by choosing "Services-&gt;Import-export-&gt;Event data export" from the main menu. Choose the organisation unit of interest, along with the Programs and Program stages and start and end dates. The "Inclusion" option has three options.</p>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Selected organisation unit: Export event data only for the selected organisation unit</p>
+        </li><li class="listitem">
+          <p>Include children of organisation unit: Export event data for the children of the organisation unit as well as the selected organisation unit itself.</p>
+        </li><li class="listitem">
+          <p>Include descendants of organisation unit:  Export event data for the descendants  of the organisation unit as well as the selected organisation unit itself.</p>
+        </li></ul></div>
+      <p>Event data can be exported either as XML or JSON, and either compressed or uncompressed in a ZIP file. Once you have set all options, press <span class="guibutton">"Export"</span> . The export file will now by downloaded to your local computer. </p>
+    </div>
+    <div class="section" title="Exporting data to other systems"><div class="titlepage"><div><div><h3 class="title"><a name="d5e3033"></a>Exporting data to other systems</h3></div></div></div>
+      
+      <div class="section" title="DHIS 1.4 Meta-data export"><div class="titlepage"><div><div><h4 class="title"><a name="d5e3035"></a>DHIS 1.4 Meta-data export</h4></div></div></div>
+        
+        <p>The DHIS 1.4 Meta-data export functionality provides the same functionality as the standard DHIS2 meta-data export, except that the resulting file can be used to transmit meta-data information to DHIS 1.4 systems. </p>
+        <div class="screenshot">
+          <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="40%"><tr><td align="center"><img src="resources/images/dhis2UserManual/dhis14_xml_metadata_export.png" align="middle" width="100%"></td></tr></table></div>
+        </div>
+      </div>
+      <div class="section" title="DHIS 1.4 Detailed Metadata Export"><div class="titlepage"><div><div><h4 class="title"><a name="d5e3042"></a>DHIS 1.4 Detailed Metadata Export</h4></div></div></div>
+        
+        <p>The DHIS 1.4 Metadata export functionality provides the same functionality as the detailed DHIS 2 metadata export, except that the resulting file can be used to transmit meta-data information to DHIS 1.4 systems. Simply select the data elements and indicators that you want and click "Export" to begin the export process.</p><div class="screenshot">
+            <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="70%"><tr><td align="center"><img src="resources/images/dhis2UserManual/dhis14_xml_metadata_detailed_export.png" align="middle" width="100%"></td></tr></table></div>
+          </div>
+      </div>
+      <div class="section" title="DHIS 1.4 Data export"><div class="titlepage"><div><div><h4 class="title"><a name="d5e3049"></a>DHIS 1.4 Data export</h4></div></div></div>
+        
+        <p>This service allows you to export data to a format which can easily be imported into a compatible DHIS 1.4 database. </p>
+        <div class="screenshot">
+          <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td align="center"><img src="resources/images/dhis2UserManual/dhis14_data_export.png" align="middle" width="100%"></td></tr></table></div>
+        </div>
+      </div>
+      <div class="section" title="XLS metadata export"><div class="titlepage"><div><div><h4 class="title"><a name="d5e3056"></a>XLS metadata export</h4></div></div></div>
+        
+        <p>Meta-data can be exported directly to the XLS format with this function. Simply click all of the available object which you wish to export and click "Export". </p>
+      </div>
+    </div>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch24s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch24.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch25.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Importing data&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;25.&nbsp;Data Administration</td></tr></table></div></body></html>

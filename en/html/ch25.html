@@ -1,0 +1,67 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;25.&nbsp;Data Administration</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="pt03.html" title="Part&nbsp;Volume III: Administrator Guide.&nbsp;Volume III: Administrator Guide"><link rel="prev" href="ch24s03.html" title="Exporting data and meta-data"><link rel="next" href="ch25s02.html" title="Data integrity"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;25.&nbsp;Data Administration</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch24s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;Volume III: Administrator Guide.&nbsp;Volume III: Administrator Guide</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch25s02.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter&nbsp;25.&nbsp;Data Administration"><div class="titlepage"><div><div><h2 class="title"><a name="d5e3059"></a>Chapter&nbsp;25.&nbsp;Data Administration</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ch25.html#dataBrowser">Data browser</a></span></dt><dt><span class="section"><a href="ch25s02.html">Data integrity</a></span></dt><dd><dl><dt><span class="section"><a href="ch25s02.html#d5e3116">Data elements without data set</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3119">Data elements without groups</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3122">Data elements violating exclusive group sets</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3127">Data elements assigned to data sets with different period types</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3130">Data sets not assigned to organisation units</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3133">Indicators with identical formulas</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3136">Indicators without groups</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3139">Invalid indicator numerators</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3142">Invalid indicator denominators</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3145">Indicators violating exclusive group sets</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3150"> Organisation units with cyclic references</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3153">Orphaned organisation units</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3156">Organisation units without groups</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3161">Organisation units violating compulsory group sets</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3165">Organisation units violating exclusive group sets</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3170"> Organisation unit groups without group sets</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3173">Validation rules without groups</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3177">Invalid validation rule left side expressions</a></span></dt><dt><span class="section"><a href="ch25s02.html#d5e3181">Invalid validation rule right side expressions</a></span></dt></dl></dd><dt><span class="section"><a href="ch25s03.html">Maintenance</a></span></dt><dt><span class="section"><a href="ch25s04.html">Resource tables</a></span></dt><dt><span class="section"><a href="ch25s05.html">Locale Management</a></span></dt><dt><span class="section"><a href="ch25s06.html">SQL View</a></span></dt><dd><dl><dt><span class="section"><a href="ch25s06.html#d5e3257">Creating a new SQL view</a></span></dt><dt><span class="section"><a href="ch25s06.html#d5e3265">SQL View management</a></span></dt></dl></dd><dt><span class="section"><a href="ch25s07.html">Organisation unit merge</a></span></dt><dt><span class="section"><a href="ch25s08.html">Duplicate data elimination</a></span></dt><dt><span class="section"><a href="ch25s09.html">Data statistics</a></span></dt><dt><span class="section"><a href="ch25s10.html">Lock exceptions</a></span></dt><dt><span class="section"><a href="ch25s11.html">Min-Max Value Generation</a></span></dt><dt><span class="section"><a href="ch25s12.html">Constant</a></span></dt><dt><span class="section"><a href="ch25s13.html">Option sets</a></span></dt><dt><span class="section"><a href="ch25s14.html">Cache Statistics </a></span></dt><dt><span class="section"><a href="ch25s15.html">Attributes</a></span></dt><dt><span class="section"><a href="ch25s16.html">Scheduling</a></span></dt><dt><span class="section"><a href="ch25s17.html">Data synchronization</a></span></dt></dl></div>
+  
+  <p>The data administration module provides a range of functions to ensure that the data stored in the DHIS2 database is integral and that the database performance is optimised. These functions should be executed on a regular basis by a data administrator to ensure that the quality of the data stored is optimal. </p>
+  <div class="section" title="Data browser"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="dataBrowser"></a>Data browser</h2></div></div></div>
+    
+    <p>The data browser maintenance and analysis module which allows the user to produce a summary of the data contained in the DHIS2 database. The summary view provides a count of data elements which have been entered at the selected organisation unit as well as its descendants. Raw data for all data elements for a range of time periods and a given organisational unit can be browsed and exported to Excel, CSV, or PDF formats. There are four modes of the data browser, which determine how the data is summarized</p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Data sets</p>
+      </li><li class="listitem">
+        <p>Data element groups</p>
+      </li><li class="listitem">
+        <p>Organisational unit groups</p>
+      </li><li class="listitem">
+        <p>Organisational units</p>
+      </li></ul></div>
+    <p>Each of these options can be accessed by selecting the desired option from  <span class="guilabel">"Browse by" </span>drop-down menu. </p>
+    <p>In order to produce a summary of submitted data for a given period and grouped by data sets, the user should follow this procedure. Begin by selecting a given periodicity type (e.g. Weekly, monthly, yearly, etc) and then a "From date" and "To date". (e.g. January 2009 to March 2009). Select the type of summary to be produced (e.g. Dataset) from the "Browse by" drop-down menu. Click the "Browse" button to view the summary. </p>
+    <div class="screenshot">
+      <div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="100%"><tr><td><img src="resources/images/maintainence/data_browser1.png" width="100%"></td></tr></table></div>
+    </div>
+    <p>A summary of the number  of data element values that have been submitted over the user selected time period is shown below. </p>
+    <div class="screenshot">
+      <div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="100%"><tr><td><img src="resources/images/maintainence/data_browsing_data_sets.png" width="100%"></td></tr></table></div>
+    </div>
+    <p> By clicking on the name of the individual dataset, a more detailed summary of each data element can be obtained as shown below.  A cross-tab table summarising each time period will be shown. </p>
+    <div class="screenshot">
+      <div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="100%"><tr><td><img src="resources/images/maintainence/data_browser_dataset_detail.png" width="100%"></td></tr></table></div>
+    </div>
+    <p>The functionality of the grouping by Datasets, Data element groups, and Organisational groups is essentially the same. </p>
+    <p>The functionality of grouping by organisation units will be discussed below. Begin by selecting "Organisation units" from the "Browse by" drop-down menu. The organisational hierarchy present in the database will now be displayed. Organisational units can be expanded by clicking on the plus symbol in the organisational tree view.</p>
+    <div class="screenshot">
+      <div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td><img src="resources/images/maintainence/data_browser_org_unit1.png" width="100%"></td></tr></table></div>
+    </div>
+    <p> By clicking on an organisational unit, and the clicking the "Browse" button, a summary of submitted data elements present in the database is returned for all immediate children of the selected organisational as shown below:</p>
+    <div class="screenshot">
+      <div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td><img src="resources/images/maintainence/data_browser_orgunit2a.png" width="100%"></td></tr></table></div>
+    </div>
+    <p>By clicking on one of the organisational units, two drill down modes are presented to the user. </p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Summary drill down- Drill down to the selected organisational units children to see the count of data elements. </p>
+      </li><li class="listitem">
+        <p>View raw data at this level: View the actual raw data at the selected organisational unit. A typical view of the raw data export can be seen below.</p>
+        <div class="screenshot">
+          <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td align="center"><img src="resources/images/maintainence/data_browser_org_unit_raw.png" align="middle" width="100%"></td></tr></table></div>
+        </div>
+        <p>Data can be exported into Excel, CSV and as a PDF report by clicking the appropriate button.</p>
+      </li></ul></div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch24s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="pt03.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch25s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Exporting data and meta-data&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Data integrity</td></tr></table></div></body></html>

@@ -1,0 +1,81 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;8.&nbsp;Getting started with DHIS 2</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="pt02.html" title="Part&nbsp;Volume II: End User Guide.&nbsp;Volume II: End User Guide"><link rel="prev" href="ch07s06.html" title="Free and Open Source Software (FOSS): benefits and challenges"><link rel="next" href="ch08s02.html" title="Logging on to DHIS 2"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;8.&nbsp;Getting started with DHIS 2</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s06.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;Volume II: End User Guide.&nbsp;Volume II: End User Guide</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch08s02.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter&nbsp;8.&nbsp;Getting started with DHIS 2"><div class="titlepage"><div><div><h2 class="title"><a name="d5e492"></a>Chapter&nbsp;8.&nbsp;Getting started with DHIS 2</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ch08.html#mod2_1">Getting started with DHIS 2</a></span></dt><dd><dl><dt><span class="section"><a href="ch08.html#d5e508">Prerequisites</a></span></dt><dt><span class="section"><a href="ch08.html#d5e512">Starting the DHIS 2 Live package</a></span></dt><dt><span class="section"><a href="ch08.html#d5e527">Working directly with the H2 database</a></span></dt><dt><span class="section"><a href="ch08.html#d5e545">Downloading and installing the server version</a></span></dt></dl></dd><dt><span class="section"><a href="ch08s02.html">Logging on to DHIS 2</a></span></dt><dt><span class="section"><a href="ch08s03.html">Logging out of DHIS 2</a></span></dt><dt><span class="section"><a href="ch08s04.html">Quick intro to designing a DHIS 2 database</a></span></dt><dd><dl><dt><span class="section"><a href="ch08s04.html#d5e577">The organisational hierarchy</a></span></dt><dt><span class="section"><a href="ch08s04.html#d5e583">Data Elements</a></span></dt><dt><span class="section"><a href="ch08s04.html#d5e590">Datasets and data entry forms</a></span></dt><dt><span class="section"><a href="ch08s04.html#d5e605">Validation rules</a></span></dt><dt><span class="section"><a href="ch08s04.html#d5e608">Indicators</a></span></dt><dt><span class="section"><a href="ch08s04.html#d5e613">Report tables and reports</a></span></dt><dt><span class="section"><a href="ch08s04.html#d5e616">GIS</a></span></dt><dt><span class="section"><a href="ch08s04.html#d5e619">Charts and dashboard</a></span></dt></dl></dd></dl></div>
+  
+  <div class="section" title="Getting started with DHIS 2"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="mod2_1"></a>Getting started with DHIS 2</h2></div></div></div>
+    
+    <p>After reading this chapter you will be able to understand:</p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Start DHIS 2 from the desktop</p>
+      </li><li class="listitem">
+        <p>How to log-in from the desktop</p>
+      </li></ul></div>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Create new users and user roles</p>
+      </li></ul></div>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>What steps are needed to design a DHIS 2 database for your organisation</p>
+      </li></ul></div>
+    <div class="section" title="Prerequisites"><div class="titlepage"><div><div><h3 class="title"><a name="d5e508"></a>Prerequisites</h3></div></div></div>
+      
+      <p>You must be sure that you have a current version of the Java Runtime installed on your machine. Depending on your operating system, there are different ways of installing Java. The reader is referred to this <a class="ulink" href="http://java.sun.com/javase/downloads/index.jsp" target="_top">website</a> for detailed information on getting Java installed.</p>
+    </div>
+    <div class="section" title="Starting the DHIS 2 Live package"><div class="titlepage"><div><div><h3 class="title"><a name="d5e512"></a>Starting the DHIS 2 Live package</h3></div></div></div>
+      
+      <p>The DHIS 2 Live package is the easiest way to get started with DHIS2. DHIS2 Live is appropriate for a stand-alone  installation and demos.  Simply download the application from <a class="ulink" href="http://www.dhis2.org/downloads" target="_top">here</a>. 
+        Once the file is downloaded,  you can simply double-click the downloaded file, and get started using DHIS 2. </p>
+      <div class="section" title="Starting up with a blank database"><div class="titlepage"><div><div><h4 class="title"><a name="d5e516"></a>Starting up with a blank database</h4></div></div></div>
+        
+        <p>The live package comes with a demo database just like what you see on the <a class="ulink" href="http://apps.dhis2.org/demo/" target="_top">online demo</a> (which is based on the national Sierra Leone HMIS), and if you want to start with a blank system/database and build up your own system then you need to do the following:
+</p>
+        <p>1) Stop DHIS2 live if it is already running.  Right click on the tray icon  and select Exit.
+The tray icon is  the green symbol on the bottom right of your screen (on Windows) which  should say' DHIS 2 Server  running' if you hold your mouse pointer over it.</p>
+        <p>2) Open the folder where the DHIS 2 live package is installed  and locate the folder called "conf".
+</p>
+        <p>3) In conf/ open the file called 'hibernate.properties' in a text editor (notepad or similar) and do the following modification:
+locate the string 'jdbc:h2:./database/dhis2' and replace the 'dhis2' part with any name that you want to give to your database (e.g. dhis2_test).</p>
+        <p>4) Save and close the hibernate.properties file.
+</p>
+        <p>5) Start DHIS 2 Live by double-clicking on the file dhis2-live.exe in the DHIS 2 Live installation folder or by using a desktop shortcut or menu link that you might have set up.
+</p>
+        <p>6) Wait for the browser window to open and the login screen to show, and then log in with username: admin and password: district
+</p>
+        <p>7) Now you will see a completely empty DHIS 2 system and you should start by adding your users, organisational hierarchy, data elements, and datasets etc. Please refer to the other sections of the user manual for instructions on how to do this.
+</p>
+      </div>
+    </div>
+    <div class="section" title="Working directly with the H2 database"><div class="titlepage"><div><div><h3 class="title"><a name="d5e527"></a>Working directly with the H2 database</h3></div></div></div>
+      
+      <p> DHIS 2 Live uses an embedded <a class="ulink" href="www.h2database.com/" target="_top">H2</a> database. This
+        has several advantages - there is no need to install a separate database engine such as
+        PostgreSQL or MySQL, and backup can be made by just copying the file. The whole database
+        exists in memory, which means high performance. The disadvantage is need for RAM. It is also
+        not suitable for multi-user server installations. </p>
+      <p>
+      In general, it is recommended to work with the database through the DHIS2 user interface, but in some situations one may need to 
+      manipulate the data directly. If one downloads H2 separately, it comes with a web interface. It can also be manipulated using 
+        <a class="ulink" href="http://openoffice.org" target="_top">OpenOffice.org</a>, using the following procedure. This assumes that dhis2-live is located in
+        the user's Linux home directory (represented by ~). Substitute the absolute path to your dhis2-live installation.
+        </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+            <p>Start OpenOffice Word Processor and select Tools - Options, then Java - Class Path ... and click on Add Archive...</p>
+          </li><li class="listitem">
+            <p>Select the following file (version may differ): ~/dhis2-live/webapps/dhis/WEB-INF/lib/h2-1.1.119.jar</p>
+          </li><li class="listitem">
+            <p>Close OpenOffice completely and then open OpenOffice.org Database. Select connect to an existing database - JDBC</p>
+          </li><li class="listitem">
+            <p>Datasource URL is h2:~/dhis2-live/database/dhis2;AUTO_SERVER=TRUE, and JDBC driver class is org.h2.Driver</p>
+          </li><li class="listitem">
+            <p>User name is sa, password not needed. Finally, select a name and folder for the .odb file.</p>
+          </li></ul></div><p>
+        <a class="ulink" href="http://www.oooforum.org/forum/viewtopic.phtml?t=97522" target="_top">More tips</a>        
+      </p>
+    </div>
+    <div class="section" title="Downloading and installing the server version"><div class="titlepage"><div><div><h3 class="title"><a name="d5e545"></a>Downloading and installing the server version</h3></div></div></div>
+      
+      <p>The latest stable server version can be downloaded from this <a class="ulink" href="http://stable.dhis2.org/" target="_top">website</a>. For detailed information on how to install it please refer to the installation chapter in the implementation manual.</p>
+    </div>
+  </div>
+  
+  
+  
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s06.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="pt02.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch08s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Free and Open Source Software (FOSS): benefits and challenges&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Logging on to DHIS 2</td></tr></table></div></body></html>

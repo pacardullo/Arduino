@@ -1,0 +1,85 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>How this works in pivot tables</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch27.html" title="Chapter&nbsp;27.&nbsp;Data dimensions in DHIS2"><link rel="prev" href="ch27s06.html" title="Some more examples"><link rel="next" href="ch27s08.html" title="From paper for to multidimensional datasets - lessons learned"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">How this works in pivot tables</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch27s06.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;27.&nbsp;Data dimensions in DHIS2</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch27s08.html">Next</a></td></tr></table><hr></div><div class="section" title="How this works in pivot tables"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e3778"></a>How this works in pivot tables</h2></div></div></div>
+    
+    <p>When doing data analysis in Excel pivot tables or any other OLAP based tool the dimensions become extremely powerful in providing many different views into the data. Each data element category or group set become a pivot field, and the options or groups become values within each of these fields. In fact categories and groupsets are treated exactly the same way in pivot tables, and so are orgunits, periods, and data elements. All these become dimensions to the data value that can be used to rearrange, pivot, filter, and to drill down into the data. Here we will show some examples of how the data dimensions are used in pivot tables.  </p>
+    <p>Using the example of morbidity and mortality data, a pivot table can show how the  dimensions can be used to view data for different aggregation levels.
+
+</p>
+    <p>The completely aggregated number is viewed when none of the pivot fields are arranged in the table area, as column or row fields, but are listed above the table itself  as page field (filter).
+</p>
+    <p>
+</p><div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td align="center"><img src="resources/images/data_dimensions/pivot_overview_1.jpg" align="middle" width="100%"></td></tr></table></div>
+      </div><p>
+</p>
+    <p>Here we have selected to look at the Morbidity total. The various data elements on morbidity have been ordered into the main_de_groups Morbidity (we will get back to Mortality later). The fields above the table itself are all set to "All", meaning that the totals in the table will contain data from all Countries, Districts, Chiefdom, ou_type, year, months, the various categories as listed in the red fields, and all data elements in the Morbidity group.</p>
+    <p>As we have seen, this is not a very useful representation, as Morbidity is organized into new cases, follow-ups, referrals, and then again in age groups. Also, we do not see the various diagnoses. The first step is to include the diagnoses field (which is a group set), which is done by dragging the "diagnosis" field down to be a row field, as shown in the figure below, and to add the group set called "morbiditymortality" in the column field to display new cases, follow-up, and referrals.</p>
+    <p>
+</p><div class="screenshot">
+        
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60"><tr><td align="center"><img src="resources/images/data_dimensions/pivot_diagnoses.jpg" align="middle" width="60"></td></tr></table></div>
+      </div><p>
+</p>
+    <p>Contrast this figure above to the one below.</p>
+    <p>
+</p><div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td align="center"><img src="resources/images/data_dimensions/pivot_dataelements.jpg" align="middle" width="100%"></td></tr></table></div>
+      </div><p>
+</p>
+    <p>They both show the same data (some of the rows have been cut in the screenshot due to
+      image size), albeit in a different way. </p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>The "dataelement" field, used in the bottom figure, displays each diagnosis as three elements; one follow-up, one new, and one referrals. This is the way the data elements have been defined in DHIS, as this makes sense for aggregation. You would not like to aggregate follow-ups and new, thus these have not been made as categories, the whole point of is to ease aggregation and disaggregation.</p>
+      </li><li class="listitem">
+        <p>The "diagnosis" group set has instead been made to lump these three (follow-up, new, referrals) together, which can then be split with another group set, namely the one called "morbiditymortality". This allows us to organize the data as in the first of the two figures, where we have the single diagnosis per row, and the groups new, follow-up, referrals as rows.</p>
+      </li></ul></div>
+    <p>The idea of using group sets is that you can combine, in any set, different data elements. Thus, if we add the mortality data (by checking it from the drop-down menu of the main_de_groups field, and moving this field out of the table) we can see also the deaths, since the mortality data elements have been included as a "death" group in the "morbiditymortality" group set. The result is shown below.</p>
+    <p>
+</p><div class="screenshot">
+        
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td align="center"><img src="resources/images/data_dimensions/pivot_diagnoses_all.jpg" align="middle" width="100%"></td></tr></table></div>
+      </div><p>
+</p>
+    <p>The result is a much more user-friendly pivot table. Now, another figure shows the relationship between the group sets and elements (these are fake data values).</p>
+    <p>
+
+</p>
+    <p>This small detail of the pivot table show how the actual data elements link to the group sets: </p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>The four data elements, as defined in DHIS, are Measles death, Measles follow-up, Measles new, and Measles referrals</p>
+      </li><li class="listitem">
+        <p>They all belong to the group set "diagnosis", where they have been lumped together in the group Measles</p>
+      </li><li class="listitem">
+        <p>The group set "morbiditymortality" contains the groups New cases, Follow-up, Referrals, and Deaths.</p>
+      </li><li class="listitem">
+        <p>Only the data element Measles deaths has data related to the group Deaths, thus this is where the data value (20) is shown, at the upper right corner. The same for Measles new; the value (224) is shown at the intersection of the data element Measles new and the group New cases (in the group set morbiditymortality)</p>
+      </li><li class="listitem">
+        <p>All the intersections where the data element does not link with the groups in morbiditymortality are left blank. Thus in this case we would get a nice table if we excluded the dataelement from the table, and just had diagnosis and the group set morbiditymortality, as in the figure shown earlier</p>
+      </li></ul></div>
+    <p>Now lets see how the data element categories can be used. In the data entry form for
+      Morbidity the new cases and follow-ups use one age category, the referral data another,, and
+      the mortality data a third age breakup, so these are available as three individual age group
+      fields in the pivot tables called morbidity_age, referrals_age and mortality_age. It doesn't
+      make sense to use these while looking at these data together (as in the examples above), but
+      e.g. if we only want to look at the only the new cases we can put the MobidityMortalityGroups
+      field back up as a page field and there select the New cases group as a filter. Then we can
+      drag the Morbidity_age field down to the column area and we get the following view:</p>
+    <div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td align="center"><img src="resources/images/data_dimensions/pivot_morb_age.jpg" align="middle" width="100%"></td></tr></table></div>
+      </div>
+    <p>The following table illustrates the benefits of reusing data element categories across
+      datasets and categorycombinations. The VCCT, ART and PMTCT data are collected in three
+      different datasets, the first two with both gender and age breakdown, and the PMTCT only age
+      (gender is given). All three share the same age groups and therefore it is possible to view
+      data elements from all these three datasets in the same table and use the age dimension. In
+      the previous example with morbidity and mortality data this was not possible since new cases,
+      referrals and deaths all have different age groups.</p>
+    <div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td align="center"><img src="resources/images/data_dimensions/pivot_hiv_age.jpg" align="middle" width="100%"></td></tr></table></div>
+      </div><p>  </p>
+    <p>In the table below PMTCT data has been removed from the table and the gender category added to the column area so that you can analyse the data for VCCT and ART by age and gender. An optional subtotal for gender has also been  added, as well as a grand total for all age and gender.</p>
+    <div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="60%"><tr><td align="center"><img src="resources/images/data_dimensions/pivot_hiv_age_gender.jpg" align="middle" width="100%"></td></tr></table></div>
+      </div>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch27s06.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch27.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch27s08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Some more examples&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;From paper for to multidimensional datasets - lessons learned</td></tr></table></div></body></html>

@@ -1,0 +1,28 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Maintenance</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch25.html" title="Chapter&nbsp;25.&nbsp;Data Administration"><link rel="prev" href="ch25s02.html" title="Data integrity"><link rel="next" href="ch25s04.html" title="Resource tables"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Maintenance</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch25s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;25.&nbsp;Data Administration</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch25s04.html">Next</a></td></tr></table><hr></div><div class="section" title="Maintenance"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="maintenance"></a>Maintenance</h2></div></div></div>
+    
+    <p>The data maintenance module has five options, each described below. </p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Clear analytics tables</p>
+        <p>Completely deletes the analytics tables, used to generate aggregate data for the pivot tables, GIS and reports. </p>
+      </li><li class="listitem">
+        <p>Clear data mart (aggregated indicator and data value values)</p>
+        <p>The data mart is where DHIS 2 stores aggregated data produced during the export to data mart process. This function clears the database table which contains aggregated indicator  and data element values.</p>
+      </li><li class="listitem">
+        <p>Rebuild data mart index</p>
+        <p>Rebuilds the database indices on the aggregated data generated during a data mart process. </p>
+      </li><li class="listitem">
+        <p>Clear zero values</p>
+        <p>This function removes zero data values from the database. Values registered for data elements with aggregation operator <span class="italic">average</span> is not removed, as such values will be significant when aggregating the data, contrary to values registered for data elements with aggregation operator <span class="italic">sum</span>. Reducing the number of data values will improve system performance.</p>
+      </li><li class="listitem">
+        <p>Clear dataset completeness</p>
+        <p>This function removes aggregated dataset completeness values. This data is produced and used by report tables.</p>
+      </li><li class="listitem">
+        <p>Prune periods</p>
+        <p>This function removes all periods which have no registered data values. Reducing the number of periods will improve system performance.</p>
+      </li><li class="listitem">
+        <p>Update category option combinations</p>
+        <p>Rebuilds the category option combinations. This may be required after altering the category options which belong to a given category. </p>
+      </li></ul></div>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch25s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch25.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch25s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Data integrity&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Resource tables</td></tr></table></div></body></html>

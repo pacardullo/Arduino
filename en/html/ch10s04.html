@@ -1,0 +1,28 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Std Dev Outlier Analysis</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch10.html" title="Chapter&nbsp;10.&nbsp;Using Data Quality functionality"><link rel="prev" href="ch10s03.html" title="Running Validation Rule Analysis"><link rel="next" href="ch10s05.html" title="Min-Max Outlier Analysis"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Std Dev Outlier Analysis</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch10s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;10.&nbsp;Using Data Quality functionality</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch10s05.html">Next</a></td></tr></table><hr></div><div class="section" title="Std Dev Outlier Analysis"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="stddevoutlierAnalysis"></a>Std Dev Outlier Analysis</h2></div></div></div>
+    
+    <p>You can access Outlier analysis from the Services-&gt;Data Quality menu.</p>
+    <p>The standard deviation based outlier analysis provides a mechanism for revealing values
+      that are numerically distant from the rest of the data. Outliers can occur by chance, but they
+      often indicate a measurement error or a heavy-tailed distribution (leading to very high
+      numbers). In the former case one wishes to discard them while in the latter case one should be
+      cautious in using tools or interpretations that assume a normal distribution. The analysis is
+      based on the standard normal distribution.</p>
+    <p><span class="bold"><strong>Select what data to analyse:</strong></span></p>
+    <p>First, select the from and to date for the data to include in the analysis. </p>
+    <p>Second, select the data set from which to pick data elements from. </p>
+    <p>Third, select all or some of the data elements in the data set by double-clicking or marking them and clicking the add/remove buttons. </p>
+    <p>Fourth, select the parent organisation unit to use. All children of the organisation unit will be included. </p>
+    <p>Fifth, select the number of standard deviations. This refers to the number of standard
+      deviations the data is allowed to deviate from the mean before it is classified as an
+      outlier.</p>
+    <div class="screenshot">
+      
+      <div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="100%"><tr><td><img src="resources/images/dhis2UserManual/outlier_analysis_selection.png" width="100%"></td></tr></table></div>
+    </div>
+    <p><span class="bold"><strong>Analysis result:</strong></span></p>
+    <p>The potential outlier values discovered will be presented in a list after the analysis process is finished. The data element, organisation unit, period, minimum value, actual value, and maximum value will be displayed for each outlier. The minimum and maximum values refer to the border values derived from the number of standard deviations selected for the analysis. </p>
+    <p>Each outlier value can be modified directly in the analysis result page. The value can be modified by clicking inside the corresponding field in the value column, entering a value and then navigate away from that field either by clicking tab or anywhere outside the field. The system will provide an alert if the value is still outside the defined minimum and maximum values, but the value will saved in any case. The field will have a red background color if the value is outside the range, and a green if inside. </p>
+    <p>Each outlier value can be marked for further follow-up by clicking the star icon.</p>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch10s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch10.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch10s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Running Validation Rule Analysis&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Min-Max Outlier Analysis</td></tr></table></div></body></html>

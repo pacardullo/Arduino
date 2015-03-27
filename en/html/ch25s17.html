@@ -1,0 +1,45 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Data synchronization</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch25.html" title="Chapter&nbsp;25.&nbsp;Data Administration"><link rel="prev" href="ch25s16.html" title="Scheduling"><link rel="next" href="ch26.html" title="Chapter&nbsp;26.&nbsp;Settings"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Data synchronization</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch25s16.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;25.&nbsp;Data Administration</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch26.html">Next</a></td></tr></table><hr></div><div class="section" title="Data synchronization"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e3337"></a>Data synchronization</h2></div></div></div>
+    
+    <p>DHIS 2 provides a feature for synchronizing data being captured on the local instance with
+      a another, remote instance of DHIS 2. This can be useful e.g. when you have deployed multiple
+      stand-alone instances of DHIS 2 which are required to submit data values to a central DHIS 2
+      instance.</p>
+    <p>These are the steps to enable data synchronziation:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>Go to Settings &gt; Synchronization, enter the remote server URL, username and password
+            and click Save. You can test your settings by clicking on the "Test settings"
+            link.</p>
+        </li><li class="listitem">
+          <p>Go to Data administration &gt; Scheduling. Under Data synchronization set strategy to
+            Enabled, and click Start.</p>
+        </li></ul></div>
+    <p>Some aspects of the data synchronization feature to be aware of:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <p>The local DHIS 2 instance will store the password of the user account on the remote
+            instance encrypted in the local database. The remote account is used for authencation
+            when transferring data. For security purposes make sure you set the "enryption.password"
+            configuration parameter in hibernate.properties to a strong password.</p>
+        </li><li class="listitem">
+          <p>Deploying the remote server on SSL/HTTPS is strongly recommended as the username and
+            password are sent in clear text using basic authentication and could be intercepted by
+            an attacker.</p>
+        </li><li class="listitem">
+          <p>The data synchronization uses the UID property of data elements, category option
+            combos and organisation units to match the meta-data. Hence the synchronization is
+            dependent on these three meta-data objects being harmonized on the local and remote
+            instance in order to work appropriately.</p>
+        </li><li class="listitem">
+          <p>The very first time DHIS 2 attempts to synchronize data the system will include data
+            entered during the last three days. For the subsequent attempts the system will store
+            the time of the last successful data synchronization and only include data saved or
+            edited since that time. A synchronization job is considered successful only if data was
+            submitted, authenticated and saved successfully on the remote server,.</p>
+        </li><li class="listitem">
+          <p>The system will attempt a synchronization every minute. If the local server does not
+            have a working Internet connection at the time, the synchronization will be silenly
+            aborted and re-attempted after a minute.</p>
+        </li><li class="listitem">
+          <p>You can see the time of last successful synchronization with remote server in the
+            scheduling screen next to the "Last success" label.</p>
+        </li></ul></div>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch25s16.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch25.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch26.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Scheduling&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;26.&nbsp;Settings</td></tr></table></div></body></html>

@@ -1,0 +1,144 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Data Entry Forms</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch16.html" title="Chapter&nbsp;16.&nbsp;Data sets and data entry forms"><link rel="prev" href="ch16.html" title="Chapter&nbsp;16.&nbsp;Data sets and data entry forms"><link rel="next" href="ch17.html" title="Chapter&nbsp;17.&nbsp;User management"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Data Entry Forms</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch16.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;16.&nbsp;Data sets and data entry forms</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch17.html">Next</a></td></tr></table><hr></div><div class="section" title="Data Entry Forms"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e1444"></a>Data Entry Forms</h2></div></div></div>
+    
+    <p>Once you have assigned a data set to an orgunit that data set will be made available in
+      Data Entry for the orgunits you have assigned it to.  A default data entry form will then be
+      shown, which is simply a list of the data elements belonging to the data set together with a
+      column for inputting the values. If your data set contains data elements with a non-default
+      categorycombination, such as age groups or gender then additional columns will be
+      automatically generated in the default form based on the different options/dimensions. </p>
+    <p>If you use more than one dataelement category combination you will get multiple columns in the data entry form with different column headings for the options. In addition to the default list-based data entry form there are two more alternatives, the section-based form and the custom form.</p>
+    <div class="section" title="Section forms"><div class="titlepage"><div><div><h3 class="title"><a name="d5e1448"></a>Section forms</h3></div></div></div>
+      
+      <p>Section forms allow for a bit more flexibility when it comes to using tabular forms and
+        are quick and simple to design. Often your data entry form will need multiple tables with
+        subheadings, and sometimes you need to disable (grey out) a few fields in the table, both of
+        these functions are supported in section forms. This function can be access by choosing
+        Maintenance-&gt;Data set Section. </p>
+    </div>
+    <div class="section" title="Adding a new section form"><div class="titlepage"><div><div><h3 class="title"><a name="dataSetSection"></a>Adding a new section form</h3></div></div></div>
+      
+      <p>Section forms are separated automatically by data element category combinations, which produce a spreadsheet like data entry form for each section. </p>
+      <p>When designing a section form the procedure is as follows:</p>
+      <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+          <p> Set up your data set as described in <a class="xref" href="ch16.html#datasets" title="Data sets">the section called &#8220;Data sets&#8221;</a></p>
+        </li><li class="listitem">
+          <p>Open the Data Set Section window (from right side menu under Data sets) and add your
+            sections one by one. To add a new section to a section form, first choose the data set
+            from the "Select data set" combo box. Then choose the specific category combo
+            and press "Add new". You can now add data elements from the "Available
+            data element" list on the left to the "Selected data elements" list on
+            the right. Data elements can be sorted within the section with the use of the "Move
+            up" <img src="resources/images/dhis2_images/move_up.png"> and
+            "Move down" <img src="resources/images/dhis2_images/move_down.png"> buttons. Be sure to press
+            "Save" once you have finished.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="resources/images/admon/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+              <p>You can only use one data element category combination per section. </p>
+            </td></tr></table></div>
+        </li><li class="listitem">
+          <p> You may need to control how the data element sections are displayed on the final
+            form. In Data set Section management, select the data set from the "Data set"
+            drop-down box, then leave [All] in the "Select Category Combo" drop-down.
+            Click on "Sort section" to sort the order of appearance of your sections in
+            the data entry form.</p>
+        </li><li class="listitem">
+          <p>In Data Entry you can now start using the Section form (should appear automatically
+            when sections are available for the selected data set). Data sets which have section
+            forms will automatically display the section form.</p>
+        </li><li class="listitem">
+          <p>Certain data elements may need to be disabled for data entry. Clicking on the  "Section grey field management" menu item will allow you to disable specific data element category options as seen below. Pressing the "Disable" button will prevent data from being entered into this specific data element/category option during data entry. Be sure to press "Done" to save your changes.</p>
+          <div class="screenshot">
+            <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/datasets/grey_field_management.png" align="middle" width="100%"></td></tr></table></div>
+          </div>
+        </li></ol></div>
+      <p>A sample section form is displayed in the next figure. Notice how each data element
+        category has been separated into a separate section, and a data entry table has been
+        automatically generated by the system. Use of section forms in combination with data element
+        categories can drastically reduce the amount of time which is required to create data entry
+        forms for data sets.</p>
+      <div class="screenshot">
+        
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/section_form.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+    </div>
+    <div class="section" title="Custom Forms"><div class="titlepage"><div><div><h3 class="title"><a name="customDataEntryForm"></a>Custom Forms</h3></div></div></div>
+      
+      <p>When the form you want to design is to complicated for the default or section forms then your last option is to use a custom form. This takes more time, but gives you full flexibility in term of the design. DHIS2 uses a built-in HTML editor (FcK Editor) for the form designer and you can either design the form in the UI or paste in your HTML directly (using the Source window in the editor). A complete reference for use of the editor can be found <a class="ulink" href="http://docs.cksource.com/CKEditor_3.x/Users_Guide" target="_top">here</a>.</p>
+      <p>One of the big advantages of custom forms, is that they can be created to mimic existing paper aggregation forms. This makes data entry much easier for users, and should reduce the number of data elements which are incorrectly entered, as they are more easily identifiable when entering data from a paper form. </p>
+      <p>Once a custom form has been added to a data set it will be available in data entry and
+        used automatically. </p>
+      <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="resources/images/admon/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+        <p>Custom forms are preferentially displayed over section forms. If a data set has both a
+          section form and a custom form, the custom form will be displayed during data entry. Users
+          will not be able to select which method they wish to input data, so be sure that your
+          custom form contains all data elements which may be required.</p>
+      </td></tr></table></div>
+      <p>To add a custom form design to a data set then first locate your data set in the Data
+        set Management window and click on the Design data entry form icon under Operations (the
+        fifth icon), see the mouse-over text to be sure.</p>
+      <p>First provide a Name for the form. There are a few important buttons in the Editor that you must pay special attention to. The blue monitor icon is the full screen mode on/off button, which can be very useful. The there is a Source button that shows the HTML code for your form. </p>
+      <p>If you already have the HTML for your form then you should start by pasting it in here. Click on Source again to go back to preview/non-HTML mode. Then there is an icon in the top right corner with a + sign on it, this will open a list of available data elements to add to your form, the Data Element Selector window. </p>
+      <p>All the input fields need to have a link to a data element or indicator. To add new data elements to the form, double-click them from the data element/indicator box as shown below. You can also select a data element/indicator and press the "+Insert" button. You can switch between either data elements or indicators by pressing the respective buttons.</p>
+      <div class="screenshot">
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="50%"><tr><td align="center"><img src="resources/images/datasets/custom_forms_data_elements.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>You can to intermediary saving by clicking on the Save button, and this will not close the window. It is recommended to save often to ensure you do not loose your work. </p>
+      <p>When you are done or want to test your form in data entry click on &lt;Save and close&gt;.</p>
+    </div>
+    <div class="section" title="Scripting in custom forms"><div class="titlepage"><div><div><h3 class="title"><a name="d5e1499"></a>Scripting in custom forms</h3></div></div></div>
+      
+      <p>In custom data entry form you can use javascript to create dynamic behavior and
+        customziations. The DHIS 2 data entry module provides a range of events which you can
+        register for and use to perform actions at certain times. The events are registered on the
+        document element. The jQuery event object and the data set identifier are always the first
+        two arguments provided to the callback functions. The table below provides an overview of
+        the events and when they are triggered.</p>
+      <div class="table"><a name="d5e1502"></a><p class="title"><b>Table&nbsp;16.1.&nbsp;Data entry events</b></p><div class="table-contents">
+        
+        <table summary="Data entry events" border="1"><colgroup><col class="c1"><col class="c2"><col class="newCol3"></colgroup><thead><tr><th>Key</th><th>Description</th><th>Arguments</th></tr></thead><tbody><tr><td>dhis2.de.event.formLoaded</td><td>Triggered after the data entry form is rendered, but before data values are set
+                in entry fields.</td><td>Event | Data set ID</td></tr><tr><td>dhis2.de.event.dataValuesLoaded</td><td>Triggered after data values are set in entry fields.</td><td>Event | Data set ID</td></tr><tr><td>dhis2.de.event.formReady</td><td>Triggered when the data entry form is completely rendered and loaded with all
+                elements.</td><td>Event | Data set ID</td></tr><tr><td>dhis2.de.event.dataValueSaved</td><td>Triggered when a data value is saved successfully.</td><td>Event | Data set ID | Data value object</td></tr><tr><td>dhis2.de.event.completed</td><td>Triggered when a data set is successfully marked as complete.</td><td>Event | Data set ID | Complete registration object</td></tr><tr><td>dhis2.de.event.uncompleted</td><td>Triggered when a data set is successfully marked as incomplete.</td><td>Event | Data set ID</td></tr><tr><td>dhis2.de.event.validationSuccess</td><td>Triggered when validation is done and there were no violations.</td><td>Event | Data set ID</td></tr><tr><td>dhis2.de.event.validationError</td><td>Triggered when validation is done and there were one or more
+                violations.</td><td>Event | Data set ID</td></tr><tr><td>dhis2.ou.event.orgUnitSelected</td><td>Triggered when one or more organisation units are selected in the org unit web
+                tree.</td><td>Event | Org unit IDs | Org unit names | Sub org unit IDs</td></tr></tbody></table>
+      </div></div><br class="table-break">
+      <p>To register for such an event:</p>
+      <pre class="screen">&lt;script type="text/javascript"&gt;
+
+dhis2.util.on( 'dhis2.de.event.formReady', function( event, ds ) {
+  console.log( 'The form with id: ' + ds + ' is loaded!' );
+} );
+
+dhis2.util.on( 'dhis2.de.event.dataValueSaved', function( event, ds, dv ) {
+  console.log( 'Data value: ' + dv.value + ' was saved with data element: ' + dv.de );
+} );
+
+dhis2.util.on( 'dhis2.de.event.completed', function( event, ds, cr ) {
+  console.log( 'Form was completed for org unit: ' + cr.ou );
+} );
+
+&lt;/script&gt;</pre>
+      <p>Be careful to only use "namespaced" events like the ones in the example above and not
+        general ones like "click" as the dhis2.util.on method will unregister the event
+        first.</p>
+      <p>If your function only applies to certain data sets you can use the supplied data set
+        identifier and shortcut your function for unwanted data sets like this:</p>
+      <pre class="screen">dhis2.de.on( 'dhis2.de.event.validationSuccess', function( event, ds ) {
+  if ( $.inArray( ds, ['utXOiGbEj14', 'Re7qzHEThSC'] ) == -1 ) {
+    return false;
+  }
+  console.log( 'Form with id: ' + ds + ' validated successfully!' );
+} );</pre>
+      <p>The identifiers of the input fields in the data entry form is on the format described
+        below. This format can be used to select the input fields in your script and perform actions
+        on them:</p><pre class="screen">&lt;dataelementid&gt;-&lt;optioncomboid&gt;-val</pre>
+      <p>Since the data set identifier is provided for all events a feasible alternative is to
+        utilize the "files" Web API resource and keep your callback functions in a single file,
+        where you let the javascript code take action based on which data set is currently
+        loaded.</p>
+    </div>
+    <div class="section" title="Data set assignment editor"><div class="titlepage"><div><div><h3 class="title"><a name="dataSetAssignmentEditor"></a>Data set assignment editor</h3></div></div></div>
+      
+      <p>The data set assignment editor is a tool for adding and removing many data sets to organisation units in batch style. Start by selecting an organisation unit from the selection tree. In the area below the tree a grid will be displayed showing all data sets as columns and the child organisation units as rows.</p>
+      <p>From the grid you can now assign or unassign data sets simply by clicking on of the corresponding icons in the grid. If you want to assign or unassign an organisation unit to all data sets you can check or uncheck the checkbox next to the organisation unit. Your changes will automatically be saved.</p>
+    </div>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch16.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch16.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch17.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;16.&nbsp;Data sets and data entry forms&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;17.&nbsp;User management</td></tr></table></div></body></html>

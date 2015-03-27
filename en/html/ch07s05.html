@@ -1,0 +1,33 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Difference between Aggregated and Patient data in a HIS</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch07.html" title="Chapter&nbsp;7.&nbsp;What is DHIS 2?"><link rel="prev" href="ch07s04.html" title="Technical background"><link rel="next" href="ch07s06.html" title="Free and Open Source Software (FOSS): benefits and challenges"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Difference between Aggregated and Patient data in a HIS</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s04.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;7.&nbsp;What is DHIS 2?</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch07s06.html">Next</a></td></tr></table><hr></div><div class="section" title="Difference between Aggregated and Patient data in a HIS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e465"></a>Difference between Aggregated and Patient data in a HIS</h2></div></div></div>
+    
+    <p>
+      <span class="emphasis"><em>Patient data</em></span> is data relating to a single patient, such as his/her
+      diagnosis, name, age, earlier medical history etc. This data is typically based on a single
+      patient-health care worker interaction. For instance, when a patient visits a health care
+      clinic, a variety of details may be recorded, such as the patient's temperature, their
+      weight, and various blood tests. Should this patient be diagnosed as having "Vitamin B 12
+      deficiency anaemia, unspecified" corresponding to ICD-10 code D51.9, this particular
+      interaction might eventually get recorded as an instance of "Anaemia" in an
+      aggregate based system. Patient based data is important when you want to track longitudinally
+      the progress of a patient over time. For example, if we want to track how a patient is
+      adhering to and responding to the process of TB treatment (typically taking place over 6-9
+      months), we would need patient based data.</p>
+    <p>
+   <span class="emphasis"><em>Aggregated data</em></span> is the consolidation of data
+      relating to multiple patients, and therefore cannot be traced back to a
+      specific patient. They are merely counts, such as incidences of Malaria,
+      TB, or other diseases. Typically, the routine data that a health
+      facility deals with is this kind of aggregated statistics, and is used
+      for the generation of routine reports and indicators, and most importantly, strategic planning within the health system. Aggregate data cannot provide the type of detailed information which patient level data can, but is crucial for planning and guidance of the performance of health systems. </p>
+    <p>In between the two you have case-based data, or anonymous "patient" data. A lot of details can be collected about a specific health event without necessarily having to identify the patient it involved. Inpatient or outpatient visits, a new case of cholera, a maternal death etc.  are common use-cases where one would like to collect a lot more detail that just adding to the total count of cases, or visits. This data is often collected in line-listing type of forms, or in more detailed audit forms. In is different from aggregate data in the sense that it contains many details about a specific event, whereas the aggregate data would count how many events of a certain type, e.g. how many outpatient visits with principal diagnosis "Malaria", or how many maternal deaths where the deceased did not attend ANC, or how many cholera outbreaks for children under 5 years. In DHIS 2 this data is collected through programs of the type single event without registration.</p>
+    <p>Patient data is highly confidential and therefore must be
+      protected so that no one other than doctors can get it. When in paper,
+      it must be properly stored in a secure place. For computers, patient
+      data needs secure systems with passwords, restrained access and audit logs.</p>
+    <p>Security concerns for aggregated data are not as crucial as for
+      patient data, as it is usually impossible  to identify a particular person to a aggregate statistic . However,
+      data can still be misused and misinterpreted by others, and should not
+      be distributed without adequate data dissemination policies in place. </p>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s04.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch07.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch07s06.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Technical background&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Free and Open Source Software (FOSS): benefits and challenges</td></tr></table></div></body></html>

@@ -1,0 +1,176 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;17.&nbsp;User management</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="pt03.html" title="Part&nbsp;Volume III: Administrator Guide.&nbsp;Volume III: Administrator Guide"><link rel="prev" href="ch16s02.html" title="Data Entry Forms"><link rel="next" href="ch18.html" title="Chapter&nbsp;18.&nbsp;Sharing"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;17.&nbsp;User management</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch16s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;Volume III: Administrator Guide.&nbsp;Volume III: Administrator Guide</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch18.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter&nbsp;17.&nbsp;User management"><div class="titlepage"><div><div><h2 class="title"><a name="d5e1562"></a>Chapter&nbsp;17.&nbsp;User management</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ch17.html#creating_new_users">Creating new users and roles</a></span></dt><dd><dl><dt><span class="section"><a href="ch17.html#user_maintenance">User maintenance</a></span></dt><dt><span class="section"><a href="ch17.html#user_user_roles">User role management</a></span></dt><dt><span class="section"><a href="ch17.html#user_management">User management</a></span></dt><dt><span class="section"><a href="ch17.html#user_by_org_unit">User by organisation unit</a></span></dt><dt><span class="section"><a href="ch17.html#d5e1682">OpenID Support</a></span></dt></dl></dd></dl></div>
+  
+  <p>DHIS2 allows for multiple users to access the system simultaneously, each with a defined set of permissions. These permissions can be finely tuned so that certain users can only enter data, while others may generate reports. Multiple user roles can be created, each with their own set of permissions, and then assigned to users which grant them certain privileges within the system. This chapter describes how to manage users and user roles.</p>
+  <div class="section" title="Creating new users and roles"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="creating_new_users"></a>Creating new users and roles</h2></div></div></div>
+    
+    <p>This section will describe how to add new users and manage existing users to the DHIS2 application. You can create as many user names as you need. Each user can be assigned certain privileges, and can be assigned to certain organisation units for which they will be enabled to enter data on behalf of. To access the user module, choose <span class="italic">Users</span> from the Apps menu and then click "User" from the menu items on the left-hand pane.</p>
+    <div class="section" title="User maintenance"><div class="titlepage"><div><div><h3 class="title"><a name="user_maintenance"></a>User maintenance</h3></div></div></div>
+      
+      <div class="screenshot">
+        
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/select_user_menu.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>User names already registered will appear as a list as seen in the screen shot below.</p>
+      <div class="screenshot">
+        
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/search_user_by_name.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>You can search for specific user names in the user list by
+      entering the name in the <span class="italic">Filter by name</span> field as shown
+      above.</p>
+    </div>
+    <div class="section" title="User role management"><div class="titlepage"><div><div><h3 class="title"><a name="user_user_roles"></a>User role management</h3></div></div></div>
+      
+      <p>As part of creating a user name you are required to define the user
+      role. Do so by clicking on <span class="italic">User Role</span> on the left side of
+      the displayed screen. This will lead you to the User role management page where you can
+      click on <span class="guibutton">Add new</span> to create a new role.</p>
+      <div class="screenshot">
+        
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/add_user_role.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>The following screen will open and here in the first text box you
+      need to give a <span class="italic">Name</span> of the Role such as Super User,      Admin User, etc. The
+      second text box called <span class="italic">Description</span> gives more information about the
+      type of User Role that is being created for e.g. State Admin User,
+      District Data Entry.</p>
+      <div class="screenshot">
+        
+        <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/role_maintenance_page.png" align="middle" width="100%"></td></tr></table></div>
+      </div>
+      <p>Next you will specify the particular data set(s) that are to be
+      made available to the particular role. You will also need to specify the
+      type of <span class="italic">Authority</span> to be given to the particular user. For each of the
+      three options namely Datasets, Reports and Authorities user can select
+      multiple options from the scroll down menu provided against each field.
+      A user can choose multiple options either by moving them
+      one-by-one.</p>
+      <p>In order for particular users to be able to enter data, you must
+      add them to both a dataset as well as an organisational unit level. You
+      can also select multiple datasets individually by pressing the Ctrl key
+      on the keyboard and clicking on individual datasets.</p>
+      <p>Finally when you have entered the required fields click on
+      <span class="guibutton">Save</span> which is located on the lower part of the
+      displayed screen. The desired user role and related authorisation will
+      be saved to the database, and can then be assigned to a particular
+      user.</p>
+    </div>
+    <div class="section" title="User management"><div class="titlepage"><div><div><h3 class="title"><a name="user_management"></a>User management</h3></div></div></div>
+      
+      <p>Under particular user role there can be more than one user. To manage
+      users, click on <span class="italic">User</span> on the left side of the screen.
+      This will lead you to the <span class="italic">User management</span> page.</p>
+      <p>To add a new user, follow these steps:</p>
+      <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+          <p>Click on the <span class="guibutton">Add New</span> button.</p>
+        </li><li class="listitem">
+          <p>Choose whether you want to fill in all the personal user information now, or invite the user by email to complete the
+          rest of the user information:</p>
+          <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+              <p><span class="italic">Create account with user details</span> - Choose this if you would like to enter all the details of the new user
+              such as name, password, etc.</p>
+              <p>If you choose this action, then enter the following information: username, password, surname, first name, E-mail,
+              OpenID account (if any) and mobile phone number (if any).</p>
+              <p>After you finish adding the user, the account will be ready for them to use with the username and password
+              that you supply.</p>
+              <div class="screenshot">
+                
+                <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/user_management_details.png" align="middle" width="100%"></td></tr></table></div>
+              </div>
+            </li><li class="listitem">
+              <p><span class="italic">Email invitation to create account</span> - Choose this if you would like to send by email an invitation for
+              the user to return to the system and finish setting up their user account. The user will then return to the
+              system and fill in most of their personal information. The account that the user finishes setting up will be limited according to how you configure it below.</p>
+              <p>Note that you may not select this option to create an account with "critical" system authorities such as All, Scheduling Administration, Perform maintenance tasks, Merge organisation units, Eliminate duplicate data elements, Sql View Management, Change system settings, and List, Add or Delete user roles.</p>
+              <p>If you choose this action, then enter the email address to which the invitation should be sent.
+              If you want to, you may also enter the user name that the account will have. If you leave the username
+              empty, then the user may choose their own username when they respond to the invitation (as long as it
+              is not taken already for another user.)</p>
+              <p>After you finish adding the new user, two emails will be sent to the address you provided. One contains
+              a unique web link by which the user can return to the system and activate their account by entering the rest of their
+              user information. The other email contains a unique code that they must enter into the system in order to
+              complete the registration, after following the link in the first email. The user must finish setting up the account within three months, or the invitation
+              becomes invalid.</p>
+              <div class="screenshot">
+                
+                <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/user_management_invite.png" align="middle" width="100%"></td></tr></table></div>
+              </div>
+            </li></ul></div>
+        </li><li class="listitem">
+          <p>Select the <span class="italic">Interface language</span> for the user. You may choose a language into which fixed elements of the
+          DHIS2 user interface have been translated.</p>
+        </li><li class="listitem">
+          <p>Select the <span class="italic">Database language</span> for the user. You may choose a language into which implementation-supplied
+          items have been translated in the database, for example data element names, organisation unit level names, etc.</p>
+        </li><li class="listitem">
+          <p>Users must be assigned to at least one data capture and maintenance organisation unit. Users will
+            have access to all children of the organisation units which have been assigned to
+            them. For instance, if a user has been assigned to a district which has several
+            facilities contained in the district, the user would have access to the district's data,
+            as well as all of the facilities contained within the district. The data approval organisation
+            units control for which organisation units the user can do data entry.</p>
+        </li><li class="listitem">
+          <p>Users can be assigned to any number of data view organisation units. This controls
+            which organisation units the user can view aggregated data for in analysis modules.
+            Giving access to an organisation unit implicitly gives access to all organisation unit
+            below it in the organisation unit hierarchy. Note that data view organisation units are
+            optional. If you do not specify any, the user will have access to the full organisation
+            unit hierarchy for viewing aggregated data.</p>
+          <p>In several places in the analysis modules one can select "user organisation unit"
+            for the organisation unit dimension. This mechanism will first attempt to use the data
+            view organisation units linked to the current user. If not found, it will use the data
+            capture organisation units.</p>
+          <div class="screenshot">
+            
+            <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/user_management_fewer_options.png" align="middle" width="100%"></td></tr></table></div>
+          </div>
+        </li><li class="listitem">
+          <p>(Click on <span class="italic">Show more options</span>.) You may optionally assign users to user groups on this page.</p>
+        </li><li class="listitem">
+          <p>(Click on <span class="italic">Show more options</span>.) You may optionally restrict the values this user sees in data analytics
+          by selecting dimensions that will restrict the users view. For example, let's say you have defined <span class="italic">Implementing Partner</span>
+          as a category option group set, and you have shared with this user only one or more specific implementing partners
+          (category option groups.) If you want to insure that the user does not see totals in analytics that include values
+          from other groups, assign <span class="italic">Implementing Partner</span> to this user. This insures that any data visible to the user
+          through DHIS2 analytics will be filtered to select only the Implementing Partner category option group(s) which
+          are visible to the user.</p>
+          <div class="screenshot">
+            
+            <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/user_management_more_options.png" align="middle" width="100%"></td></tr></table></div>
+          </div>
+        </li><li class="listitem">
+          <p> Click on the <span class="guibutton">Add</span> button to complete adding the new user.</p>
+        </li></ol></div>
+      <p>The recently created new user can be seen in main <span class="italic">User management</span> screen</p>
+      <p>You can edit (like password, surname, etc.) and delete the
+      details of new/old users by selecting corresponding User&#8217;s
+      <span class="guibutton">Edit</span> and <span class="guibutton">Remove</span>
+      menu options.</p>
+    </div>
+    <div class="section" title="User by organisation unit"><div class="titlepage"><div><div><h3 class="title"><a name="user_by_org_unit"></a>User by organisation unit</h3></div></div></div>
+      
+      <p>The <span class="italic">User by organisation unit</span> function allows you see which users have been assigned to a particular organisation unit. Simply select the organisation unit from the tree on the left, and a list of users which have been assigned to this particular organisation unit will be displayed</p>
+    </div>
+    <div class="section" title="OpenID Support"><div class="titlepage"><div><div><h3 class="title"><a name="d5e1682"></a>OpenID Support</h3></div></div></div>
+      
+      <p>DHIS 2 supports the OpenID standard, which allows third party login using a OpenID
+        provider, please see <a class="ulink" href="http://openid.net" target="_top">http://openid.net</a> for more
+        information. To create a custom OpenID URL for a username you can visit this URL and log in
+        with your OpenID provider: <a class="ulink" href="http://openid-provider.appspot.com" target="_top">http://openid-provider.appspot.com</a>.</p>
+      <p>To enable support for this in DHIS 2, two steps must be done:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+            <p><span class="bold"><strong>Set your OpenID provider</strong></span>: This can be done inside
+              system settings, under "Access". Here you can set both the OpenID provider, and also
+              the label to display on the login page to login with this provider (defaults to Login
+              with OpenID).</p>
+          </li><li class="listitem">
+            <p><span class="bold"><strong>Set the OpenID identifier on the user</strong></span>: For every
+              user that should be able to login with his openid identifier, you will need to set
+              this on the user itself. This can be done in user management, under the email field,
+              there is noe a field called <span class="italic">OpenID</span> which can be
+              used to fill in the OpenID identifier. </p>
+          </li></ul></div>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch16s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="pt03.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch18.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Data Entry Forms&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;18.&nbsp;Sharing</td></tr></table></div></body></html>

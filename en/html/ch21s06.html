@@ -1,0 +1,58 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Using reporting rate summary</title><link rel="stylesheet" type="text/css" href="resources/css/docbook_bsd.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><meta name="keywords" content="DHIS2, HMIS, aggregate data, Health Management Information System, Integrated data repository, Health Information System"><link rel="home" href="deans_dashboard_implementation_guide.html" title="Deans Dashboard Implementation Guide"><link rel="up" href="ch21.html" title="Chapter&nbsp;21.&nbsp;Using reporting functionality"><link rel="prev" href="ch21s05.html" title="Using resources"><link rel="next" href="ch21s07.html" title="Using organisation unit distribution reports"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Using reporting rate summary</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch21s05.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;21.&nbsp;Using reporting functionality</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch21s07.html">Next</a></td></tr></table><hr></div><div class="section" title="Using reporting rate summary"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="reporting_reporting_rate_summary"></a>Using reporting rate summary</h2></div></div></div>
+    
+    <p>Access the reporting rate summary from the Services-&gt;Reports menu. Reporting rate
+      summaries will show how many datasets (forms) that have been submitted by organisation unit
+      and period. There are two methods available to calculate reporting rates
+      (completeness):</p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Based on complete data set registrations. A complete data set registration refers to a
+          user marking a data entry form as complete, typically by clicking the complete button in
+          the data entry screen, hereby indicating to the system that she considers the form to be
+          complete. This is i.e. a subjective approach to calculating completeness.</p>
+      </li><li class="listitem">
+        <p>Based on compulsory data element: You can define any number of data elements in a data
+          set to be compulsory. This implies that data values must be captured for all data elements
+          which have been marked as compulsory in order for the data set to be considered complete.
+          This is i.e. an objective approach to calculating completeness.</p>
+      </li></ul></div>
+    <p>The reporting rate summary will for each row show a range of measures:</p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Actual reports: Indicates the number of data entry complete registrations for the
+          relevant data set.</p>
+      </li><li class="listitem">
+        <p>Expected reports: Indicates how many data entry complete registrations are expected.
+          This number is based on the number of organisation units the relevant data set has been
+          assigned to (enabled for data entry).</p>
+      </li><li class="listitem">
+        <p>Percent: The percentage of reports registered as complete based on the number
+          expected.</p>
+      </li><li class="listitem">
+        <p>Reports on time: Same as actual reports, only reports registered as complete within
+          the maximum number of days after the end of the reporting period. This number of days
+          after reporting period can be defined per data set in the data set management.</p>
+      </li><li class="listitem">
+        <p>Percent on time: Same as percentage, only reports registered as complete on time used
+          as numerator.</p>
+      </li></ul></div>
+    <p>To run the report you can follow these steps:</p>
+    <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+        <p>Select an orgunit from the tree.</p>
+      </li><li class="listitem">
+        <p>Select one of the completeness methods to use to calcuate the reporting rates.</p>
+        <p>Select all or one data set. All will give you a report with all data sets for the
+          selected organisation unit. A single data set will give you a report with completeness for
+          all children of the selected organisation unit.</p>
+      </li><li class="listitem">
+        <p>Select a period type and a period from the list of available periods for that period
+          type. Move back/forward one year by using the prev/next buttons.</p>
+      </li><li class="listitem">
+        <p>The report will then be rendered. Change any of the parameters above and the report
+          will be updated automatically.</p>
+      </li></ul></div>
+    <div class="screenshot">
+      
+      <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="80%"><tr><td align="center"><img src="resources/images/dhis2UserManual/completeness_report.png" align="middle" width="100%"></td></tr></table></div>
+    </div>
+  </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch21s05.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch21.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch21s07.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Using resources&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="deans_dashboard_implementation_guide.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Using organisation unit distribution reports</td></tr></table></div></body></html>
