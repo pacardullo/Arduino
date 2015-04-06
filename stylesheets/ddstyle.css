@@ -1,64 +1,16 @@
 /* Dean's Dashboard */
-.banner-title {
-    display: none!important;
-}
-.dsubsection {
-    margin-top: 20px;
-}
-.dcontent {
-    margin-top: 5px!important;
-}
-#foundational {
-    display: block!important;
-}
-#foundational .dcontent {
-    display: block!important;
-}
-#foundational .dicon {
-    display: inline-block;
-    margin-right: 20px;
-}
-#tryitnow .dcontent {
-    display: block;
-}
-#tryitnow .dicon {
-    margin-right: 10px;
-    display: inline-block;
-    vertical-align: top!important;
-}
-#screenshots .dcontent {
-    display: block;
-}
-#screenshots .dicon {
-    display: inline-block;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    line-height: 25px;
-}
-#tryitnow .dicon a, #learnmore .dicon a {
-    width: 120px!important;
-    display: inline-block;
-    text-align: center;
-    margin-right: 20px!important;
-}
-#foundational .dicon a {
-    margin-left: 0px!important;
-    margin-right: 10px!important;
-    width: 120px!important;
-    display: inline-block;
-    text-align: center;
-}
-#foundational {
-    margin-bottom: 20px!important;
-}
-#footer_wrap .inner {
-    display: none;
-}
-.dicon img {
-    border: solid lightgray 1px;
-}
-.sscaption {
-    text-align: center;
-    font-size: 11px;
-    font-weight: 600;
-}
+#footer_wrap .inner { display: none; }
+#foundational .dcontent { display: block!important; }
+#foundational .dicon a { margin-left: 0px!important; margin-right: 10px!important; width: 120px!important; display: inline-block; text-align: center; }
+#foundational .dicon { display: inline-block; margin-right: 20px; }
+#foundational { display: block!important; margin-bottom: 20px!important; }
+#screenshots .dcontent { display: block; }
+#screenshots .dicon { display: inline-block; padding-right: 10px; padding-bottom: 20px; line-height: 25px; }
+#tryitnow .dcontent,  #learnmore .dcontent { display: block; }
+#tryitnow .dicon a, #learnmore .dicon a { width: 120px!important; display: inline-block; text-align: center; margin-right: 20px!important; }
+#tryitnow .dicon, #learnmore .dicon { margin-right: 10px; display: inline-block; vertical-align: top!important; }
+.banner-title { display: none!important; }
+.dcontent { margin-top: 5px!important; }
+.dicon img { border: solid lightgray 1px; }
+.dsubsection { margin-top: 20px; }
+.sscaption { text-align: center; font-size: 11px; font-weight: 600; }
